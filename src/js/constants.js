@@ -16,7 +16,8 @@ export const {
   ERROR,
   HASTEXT,
   VALID,
-  FIXED
+  FIXED,
+  FLASH_DURATION
 } = {
   $DOC: $(document),
   $WIN: $(window),
@@ -35,5 +36,6 @@ export const {
   ERROR: 'has-error',
   HASTEXT: 'has-text',
   VALID: 'is-valid',
-  FIXED: 'is-fixed'
+  FIXED: 'is-fixed',
+  FLASH_DURATION: 1000
 };

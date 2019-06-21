@@ -1,0 +1,58 @@
+.header
+  position: fixed
+  z-index: 15
+  left: 0
+  right: 0
+  top: 0
+  background-color: transparent
+  height: $header-height
+  padding-left: $padding
+  padding-right: $padding
+  +flex(space-between, center)
+  &__nav
+    flex-grow: 1
+    text-align: right
+
+.burger
+  display: block
+  color: $white
+  width: 38px
+  // height: 33px
+  padding-bottom: 4px
+  padding-top: 4px
+  position: relative
+  +tr(color .3s)
+  +hover
+    color: $gray-dark
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+    background-color: currentColor
+    width: 100%
+    display: block
+    height: 3px
+  &::before
+    top: 0
+  &::after
+    bottom: 0
+  span
+    display: block
+    position: relative
+    height: 3px
+    background-color: transparent
+    margin-top: 8px
+    margin-bottom: 8px
+    &::before,
+    &::after
+      content: ''
+      position: absolute
+      left: 0
+      background-color: currentColor
+      width: 100%
+      display: block
+      height: 3px
+    &::before
+      top: 4px
+    &::after
+      bottom: 4px

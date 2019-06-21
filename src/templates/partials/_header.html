@@ -1,1 +1,39 @@
-<p>Hello from partials/_header.html</p>
+<!-- begin header -->
+<header class="header">
+  <div class="header__logo">
+    {% include "partials/_logo.html" %}
+  </div>
+
+  <div class="header__nav">
+    {{ mixins.list(
+      name = 'nav',
+      modifications = { wrap: '', item: '', link: '' },
+      list = [
+        { link: 'Про нас', modItem: '', modLink: '' },
+        {
+          link: 'Послуги',
+          item: mixins.list(
+            name = 'nav',
+            modifications = { wrap: 'nav--dropdown', item: '', link: '' },
+            list = [
+              { link: 'Світловий маркетинг', href: '#1' },
+              { link: 'Архітектурне освітлення', href: '#2' },
+              { link: 'Smart освітлення', href: '#3' },
+              { link: 'Адаптивне освітлення', href: '' },
+              { link: 'Світлова скульптура', href: '' },
+              { link: 'Світлове хюгге', href: '' }
+            ]
+          ),
+          modItem: 'has-submenu',
+          modLink: ''
+        },
+        { link: 'Контакти', modItem: '', modLink: '' }
+      ]
+    ) }}
+  </div>
+
+  <div class="header__burger">
+    <a href="#" class="burger"><span></span></a>
+  </div>
+</header>
+<!-- end header -->

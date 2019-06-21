@@ -1,0 +1,16 @@
+.fullpage
+  height: 100vh
+  position: relative
+  &__wrap
+    position: relative
+  &__slide
+    +coverdiv
+    // visibility: hidden
+    z-index: 0
+    opacity: 0
+    padding-top: $header-height
+    overflow: hidden
+    &.is-active
+      visibility: visible
+      z-index: 1
+      opacity: 1

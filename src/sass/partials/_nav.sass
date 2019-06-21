@@ -1,0 +1,72 @@
+.nav
+  $this: &
+  color: $gray-lightest
+  li
+    display: inline-block
+    margin-right: 75px
+    position: relative
+    &.has-submenu
+      padding-right: 20px
+      +before
+        +icon-arrow(8, 8, 1, currentColor, -45)
+        position: absolute
+        top: .2em
+        right: 0
+        +tr(transform .3s)
+      +hover
+        +before
+          top: .5em
+          +rotate(-225)
+        #{$this}--dropdown
+          visibility: visible
+          opacity: 1
+  a
+    +tr(color .3s)
+    +hover
+      color: $gray-dark
+
+
+  &--dropdown
+    visibility: hidden
+    opacity: 0
+    position: absolute
+    z-index: 1
+    top: 100%
+    left: 0
+    color: $gray-light
+    text-align: left
+    +tr(visibility .3s, opacity .3s)
+    padding-top: 10px
+    li
+      display: block
+      padding-top: 9px
+      padding-bottom: 9px
+      margin-right: 0
+      white-space: nowrap
+  &--lg
+    ul
+      +flex(flex-start, normal, row, wrap)
+    li
+      width: 50%
+      margin-right: 0
+      margin-top: 55px
+      margin-bottom: 55px
+
+    a
+      position: relative
+      font-size: $fz-md
+      +tr(padding-left .3s)
+      +before
+        display: none
+        background-color: $accent
+        bottom: .3em
+        left: 0
+        right: -20px
+        position: absolute
+        height: 12px
+        z-index: -1
+      +hover
+        color: currentColor
+        padding-left: 10px
+        +before
+          display: block

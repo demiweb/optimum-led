@@ -1,0 +1,26 @@
+---
+title: services
+page: services
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+  {% include "partials/_header.html" %}
+  {# {% include "partials/_home.html" %} #}
+
+
+  <div class="fullpage js-fullpage">
+    <div class="fullpage__slide is-active" id="1">
+      section 1
+    </div>
+    {% for i in range(0, 5) %}
+    <!-- begin fullpage__item -->
+    <div class="fullpage__slide" id="{{ i + 2 }}">
+      section {{ i + 2 }}
+    </div>
+    <!-- end fullpage__item -->
+    {% endfor %}
+  </div>
+{% endblock %}
+
+

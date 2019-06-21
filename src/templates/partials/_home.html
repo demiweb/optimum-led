@@ -1,0 +1,111 @@
+{%set
+home = [
+  {
+    title: '<strong>OPTIMUM LED</strong> архітектура світла',
+    subttl: 'Дизайн світла та виробництво світлового обладнання',
+    word: 'led',
+    img: 'home-1.png',
+    link: 'Дізнатися більше про нас'
+  },
+  {
+    title: '<strong>Ми викликаємо емоції</strong> за допомогою світла',
+    subttl: 'Професійне освітлення здатне змінювати сприйняття реальності, викликати глибинні емоції та почуття, трансформувати об’єкти, що нас оточують, і вибудовувати образи в уяві.',
+    word: 'emotions',
+    img: 'home-2.png',
+    link: 'Дізнатися більше про послуги'
+  },
+  {
+    word: 'services',
+    img: 'home-3.png',
+    nav: true
+  }
+]
+%}
+
+<!-- begin home -->
+<section class="home fullpage__wrap">
+
+    <div class="fullpage js-fullpage" data-page="home">
+      {% for i in home %}
+      <!-- begin slide -->
+      <div class="fullpage__slide{% if i.active %} is-active{% endif %}">
+        <div class="home-page">
+          <div class="container">
+            <div class="home-page__block">
+              {% if i.title %}
+              <div class="home-page__title"><h2 class="title">{{ i.title | safe }}</h2></div>
+              {% endif %}
+
+              {% if i.subttl %}
+
+              <div class="home-page__subttl subttl">{{ i.subttl }}</div>
+              {% endif %}
+
+              {% if i.link %}
+              <div class="home-page__link">
+                <a href="#" class="link-arrow">
+                  <span class="link-arrow__title">Дізнатися більше про нас</span>
+                  <span class="link-arrow__arrow"></span>
+                </a>
+              </div>
+              {% endif %}
+
+              {% if i.nav %}
+              <div class="home-page__nav">
+                {{ mixins.list(
+                  name = 'nav',
+                  modifications = { wrap: 'nav--lg', item: '', link: '' },
+                  list = [
+                    { item: '', link: 'Світловий маркетинг', modItem: '', modLink: '' },
+                    { item: '', link: 'Архітектурне освітлення', modItem: '', modLink: '' },
+                    { item: '', link: 'Адаптивне освітлення', modItem: '', modLink: '' },
+                    { item: '', link: 'Світлове освітлення (Хюгге)', modItem: '', modLink: '' },
+                    { item: '', link: 'Smart-освітлення', modItem: '', modLink: '' },
+                    { item: '', link: 'Світлова скульптура', modItem: '', modLink: '' }
+                  ]
+                ) }}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="home-page__word text-stroke flashIn">{{ i.word }}</div>
+
+          {# <div class="home-page__img js-lazy" data-background-image="img/home/{{ i.img }}"></div> #}
+          {# <div class="home-page__img js-lazy"></div> #}
+          {# <div class="home-page__img js-lazy" data-background-image="img/home/home-1-compressor.png"></div> #}
+
+          <img class="home-page__img js-lazy" data-src="img/home/{{ i.img }}" alt="">
+        </div>
+      </div>        
+      <!-- end slide -->
+      {% endfor %}
+    </div>  
+
+  <div class="home__controls">
+    <div class="home__slides-nav">
+      <!-- begin home-nav -->
+      <div class="home-nav js-pagination">
+        <a href="#" class="home-nav__item is-active">
+          <span class="home-nav__nmb">01</span>
+          <span class="home-nav__text">OPTIMUM LED архітектура світла</span>
+        </a>
+        <a href="#" class="home-nav__item">
+          <span class="home-nav__nmb">02</span>
+          <span class="home-nav__text">Ми викликаємо емоції за допомогою світла</span>
+        </a>
+        <a href="#" class="home-nav__item">
+          <span class="home-nav__nmb">03</span>
+          <span class="home-nav__text">Чим ми займаємося</span>
+        </a>
+      </div>
+      <!-- end home-nav -->
+    </div>
+    <div class="home__btns">
+      <button class="home__prev js-prev"></button>
+      <button class="home__next js-next"></button>
+    </div>
+  </div>  
+
+</section>
+<!-- end home -->

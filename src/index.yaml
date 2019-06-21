@@ -1,4 +1,4 @@
-ProjectTitle: template
+ProjectTitle: optimum-led
 
 PageList:
-- file: page.html
+- file: home.html

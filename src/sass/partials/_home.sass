@@ -1,0 +1,107 @@
+.home
+  height: 100vh
+  background-color: $black
+  background-image: linear-gradient( -180deg, rgb(36,36,36) 0%, rgb(1,1,1) 100%)
+  +image('home/bg.jpg')
+  &__controls
+    position: fixed
+    bottom: 0
+    z-index: 15
+    width: percentage(960/1920)
+    height: $controls-height
+    background-color: $gray-darkest
+    +flex(space-between, center)
+  &__btns
+    width: 180px
+  &__prev,
+  &__next
+    position: relative
+    display: inline-block
+    background-color: transparent
+    height: 45px
+    width: 45px
+    color: $white
+    border: 1px solid currentColor
+    border-radius: 50%
+    +tr(color .3s)
+    +hover
+      color: $gray-dark
+    +before
+      +icon-arrow(8, 8, 1, currentColor, 45)
+      +vcenter
+      transform: translate(-40%, -50%) rotate(45deg)
+  &__next
+    +rotate(180)
+  &__prev
+    margin-right: 40px
+
+.home-page
+  height: 100%
+  position: relative
+  padding-bottom: $controls-height
+  .container
+    height: 100%
+    +flex(center, normal, column)
+  &__title
+    margin-bottom: 15px
+  &__subttl
+    margin-bottom: 120px
+
+  &__img
+    position: absolute
+    bottom: 0
+    top: 0px - $header-height
+    right: 0
+    z-index: 0
+    z-index: 0
+    opacity: 0
+  &__block
+    position: relative
+    z-index: 1
+    max-width: 50%
+    opacity: 0
+
+  &__word
+    position: absolute
+    z-index: 1
+    left: 45%
+    bottom: 10%
+
+.home-nav
+  +flex(space-between, center)
+  &__nmb
+    display: block
+    margin-bottom: 15px
+  &__item
+    display: block
+    color: $gray-dark
+    position: relative
+    padding-bottom: 12px
+    padding-left: 50px
+    padding-right: 50px
+    width: 33.33333%
+    +hover
+      @extend .home-nav__item.is-active
+    &.is-active
+      color: $gray-light
+      +before
+        visibility: visible
+        opacity: 1
+    +before
+      position: absolute
+      bottom: 0
+      left: 50px
+      width: 50px
+      background-color: currentColor
+      height: 1px
+      visibility: hidden
+      opacity: 0
+      +tr(visibility .3s, opacity .3s)
+    +notlast
+      +after
+        position: absolute
+        height: 30px
+        width: 1px
+        background-color: $gray-dark
+        top: .5em
+        right: 0
