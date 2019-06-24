@@ -1,3 +1,17 @@
+{% if colorLogo %}
+<!-- begin logo -->
+<a href="/" class="logo logo--color">
+  <span class="logo__img">
+    <img src="img/logo-color.png" width="35" height="36" alt="">
+  </span>
+
+  <span class="logo__text">
+    <span>Optimum</span>
+    <span>led</span>
+  </span>
+</a>
+<!-- end logo -->
+{% else %}
 <!-- begin logo -->
 <a href="/" class="logo">
   <span class="logo__img">
@@ -10,3 +24,4 @@
   </span>
 </a>
 <!-- end logo -->
+{% endif %}

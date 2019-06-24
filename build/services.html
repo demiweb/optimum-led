@@ -36,12 +36,12 @@
                 <!-- begin nav -->
                 <nav class="nav nav--dropdown">
                   <ul>
-                    <li><a href="#1">Світловий маркетинг</a></li>
-                    <li><a href="#2">Архітектурне освітлення</a></li>
-                    <li><a href="#3">Smart освітлення</a></li>
-                    <li><a href="#">Адаптивне освітлення</a></li>
-                    <li><a href="#">Світлова скульптура</a></li>
-                    <li><a href="#">Світлове хюгге</a></li>
+                    <li><a href="#" class=" js-fullpage-anchore" data-index="1">Світловий маркетинг</a></li>
+                    <li><a href="#" class=" js-fullpage-anchore" data-index="2">Архітектурне освітлення</a></li>
+                    <li><a href="#" class=" js-fullpage-anchore" data-index="3">Smart освітлення</a></li>
+                    <li><a href="#" class=" js-fullpage-anchore" data-index="4">Адаптивне освітлення</a></li>
+                    <li><a href="#" class=" js-fullpage-anchore" data-index="5">Світлова скульптура</a></li>
+                    <li><a href="#" class=" js-fullpage-anchore" data-index="6">Світлове хюгге</a></li>
                   </ul>
                 </nav>
                 <!-- end nav -->
@@ -53,28 +53,274 @@
           <!-- end nav -->
         </div>
         <div class="header__burger">
-          <a href="#" class="burger"><span></span></a>
+          <a href="#" class="burger js-burger"><span></span></a>
         </div>
       </header>
       <!-- end header -->
-      <div class="fullpage js-fullpage">
-        <div class="fullpage__slide is-active" id="1"> section 1 </div>
-        <!-- begin fullpage__item -->
-        <div class="fullpage__slide" id="2"> section 2 </div>
-        <!-- end fullpage__item -->
-        <!-- begin fullpage__item -->
-        <div class="fullpage__slide" id="3"> section 3 </div>
-        <!-- end fullpage__item -->
-        <!-- begin fullpage__item -->
-        <div class="fullpage__slide" id="4"> section 4 </div>
-        <!-- end fullpage__item -->
-        <!-- begin fullpage__item -->
-        <div class="fullpage__slide" id="5"> section 5 </div>
-        <!-- end fullpage__item -->
-        <!-- begin fullpage__item -->
-        <div class="fullpage__slide" id="6"> section 6 </div>
-        <!-- end fullpage__item -->
+      <!-- begin menu -->
+      <div class="menu js-menu">
+        <a href="#" class="menu__close js-menu-close"></a>
+        <div class="menu__inner">
+          <div class="menu__block js-lazy" data-background-image="img/bg-menu.jpg">
+            <div class="menu__logo">
+              <!-- begin logo -->
+              <a href="/" class="logo">
+                <span class="logo__img">
+                  <img src="img/logo.png" width="35" height="36" alt="">
+                </span>
+                <span class="logo__text">
+                  <span>Optimum</span>
+                  <span>led</span>
+                </span>
+              </a>
+              <!-- end logo -->
+            </div>
+            <div class="menu__nav">
+              <!-- begin nav -->
+              <nav class="nav nav--menu">
+                <ul>
+                  <li><span>01</span><a href="#">Головна</a></li>
+                  <li><span>02</span><a href="#">Про нас</a></li>
+                  <li><span>03</span><a href="#">Послуги</a></li>
+                  <li><span>04</span><a href="#">Контакти</a></li>
+                </ul>
+              </nav>
+              <!-- end nav -->
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- end menu -->
+      <div class="fullpage js-fullpage" data-page="services">
+        <!-- begin section -->
+        <section class="fullpage-section is-active section section--center js-lazy" data-background-image="img/services/img-1.jpg">
+          <div class="section__block">
+            <div class="container">
+              <div class="section__center">
+                <h1 class="title"><strong>Ми викликаємо емоції</strong> за допомогою світла</h1>
+              </div>
+            </div>
+          </div>
+          <div class="section__scroll-down">
+            <a href="#" class="scroll-down js-scroll-down">
+              <span class="scroll-down__title">Дізнатися більше</span>
+              <span class="scroll-down__arrow"></span>
+            </a>
+          </div>
+        </section>
+        <!-- end section -->
+        <!-- begin section -->
+        <section class="fullpage-section section js-lazy" data-background-image="img/services/img-2.jpg">
+          <div class="section__block">
+            <div class="container">
+              <!-- begin section-block -->
+              <div class="section-block">
+                <div class="section-block__title">
+                  <h2 class="title">Світловий <strong>маркетинг</strong></h2>
+                </div>
+                <div class="section-block__descr">
+                  <div class="section-block__descr-text text">Світловий маркетинг або емоційне освітлення побудоване на психології сприйняття світла та кольорів. Використовується, щоб привести людину до певного емоційного стану. Дозволяє вирішити визначене завдання бренду:</div>
+                  <div class="section-block__descr-list">
+                    <!-- begin section-list -->
+                    <div class="section-list">
+                      <ul>
+                        <li><span class="section-list__icon"></span>викликати почуття, з яким бренд має асоціюватися</li>
+                        <li><span class="section-list__icon"></span>імітувати емоцію від придбання</li>
+                        <li><span class="section-list__icon"></span>проанонсувати враження від використання продукту</li>
+                        <li><span class="section-list__icon"></span>стати одним з факторів в процесі прийняття рішення про покупку</li>
+                      </ul>
+                    </div>
+                    <!-- end section-list -->
+                  </div>
+                  <div class="section-block__descr-text text">Будуючи світлову композицію за принципами маркетингу, ми вивчаємо поведінку та вподобання цільової аудиторії, а також вплив світла на неї в різних умовах.</div>
+                </div>
+              </div>
+              <!-- end section-block -->
+            </div>
+          </div>
+          <div class="section__word-bottom text-stroke">emotions</div>
+        </section>
+        <!-- end section -->
+        <!-- begin section -->
+        <section class="fullpage-section section js-lazy" data-background-image="img/services/img-3.jpg">
+          <div class="section__block">
+            <div class="container">
+              <!-- begin section-block -->
+              <div class="section-block">
+                <div class="section-block__title">
+                  <h2 class="title">Архітектурне освітлення</h2>
+                </div>
+                <div class="section-block__blocks">
+                  <!-- begin block -->
+                  <div class="block">
+                    <div class="block__nmb">01</div>
+                    <div class="block__text text">Статичне або циклічне освітлення, орієнтоване на архітектуру. Дозволяє підкреслити елементи будівлі та побудувати визначене враження від простору: надати статусності та величності, полегшити конструкцію або створити святкову атмосферу.</div>
+                  </div>
+                  <!-- end block -->
+                  <!-- begin block -->
+                  <div class="block">
+                    <div class="block__nmb">02</div>
+                    <div class="block__text text">За цим методом ми проектуємо світлову композицію спільно з архітекторами та дизайнерами. Допомагаємо допрацювати проект так, щоб світло працювало максимально ефективно.</div>
+                  </div>
+                  <!-- end block -->
+                </div>
+              </div>
+              <!-- end section-block -->
+            </div>
+          </div>
+          <div class="section__word-bottom text-stroke">architecture</div>
+        </section>
+        <!-- end section -->
+        <!-- begin section -->
+        <section class="fullpage-section section js-lazy" data-background-image="img/services/img-4.jpg">
+          <div class="section__block">
+            <div class="container">
+              <!-- begin section-block -->
+              <div class="section-block">
+                <div class="section-block__title">
+                  <h2 class="title">Smart <strong>освітлення</strong></h2>
+                </div>
+                <div class="section-block__blocks">
+                  <!-- begin block -->
+                  <div class="block">
+                    <div class="block__nmb">01</div>
+                    <div class="block__text text">Світлова композиція, прив’язана до дій, рухів та присутності людей. Доповнює екстер’єр та інтер’єр будівлі оригінальними динамічними елементами. Таке освітлення привертає увагу та надовго запам’ятовується.</div>
+                  </div>
+                  <!-- end block -->
+                  <!-- begin block -->
+                  <div class="block">
+                    <div class="block__nmb">02</div>
+                    <div class="block__text text">Smart-освітлення будується на запрограмованій системі, яка отримує інформацію з камер спостереження, датчиків руху та присутності, розташованих у приміщенні. Система миттєво скеровує сигнал на прилади освітлення. Таким чином ми створюємо ефект живої реакції на присутніх.</div>
+                  </div>
+                  <!-- end block -->
+                </div>
+              </div>
+              <!-- end section-block -->
+            </div>
+          </div>
+          <div class="section__word-bottom text-stroke">smart</div>
+        </section>
+        <!-- end section -->
+        <!-- begin section -->
+        <section class="fullpage-section section js-lazy" data-background-image="img/services/img-5.jpg">
+          <div class="section__block">
+            <div class="container">
+              <!-- begin section-block -->
+              <div class="section-block">
+                <div class="section-block__title">
+                  <h2 class="title">Світлова скульптура</h2>
+                </div>
+                <div class="section-block__blocks">
+                  <!-- begin block -->
+                  <div class="block">
+                    <div class="block__nmb">01</div>
+                    <div class="block__text text">Архітектурні та декоративні просторові об’єкти, що разом із системою світлових приладів створюють статичну або динамічну композицію. Це вражаючий декоративний елемент в дизайні та архітектурі, що працює на імідж та надає будівлі індивідуальності.</div>
+                  </div>
+                  <!-- end block -->
+                  <!-- begin block -->
+                  <div class="block">
+                    <div class="block__nmb">02</div>
+                    <div class="block__text text">Може використовуватися, як носій нативної реклами бренду: за допомогою неявних образів зображати логотип, айдентику або безпосередньо продукт компанії.</div>
+                  </div>
+                  <!-- end block -->
+                </div>
+              </div>
+              <!-- end section-block -->
+            </div>
+          </div>
+          <div class="section__word-bottom text-stroke">sculpture</div>
+        </section>
+        <!-- end section -->
+        <!-- begin section -->
+        <section class="fullpage-section section js-lazy" data-background-image="img/services/img-6.jpg">
+          <div class="section__block">
+            <div class="container">
+              <!-- begin section-block -->
+              <div class="section-block">
+                <div class="section-block__title">
+                  <h2 class="title">Адаптивне освітлення</h2>
+                </div>
+                <div class="section-block__blocks">
+                  <!-- begin block -->
+                  <div class="block">
+                    <div class="block__nmb">01</div>
+                    <div class="block__text text">Динамічне світло, що змінюється в залежності від зовнішніх умов: природнього світла, вітру, вологості та пори року. Дозволяє покращити емоційний стан та працездатність людини, полегшує вплив від зміни сезонів і погоди, може бути самостійним декоративним елементом.</div>
+                  </div>
+                  <!-- end block -->
+                  <!-- begin block -->
+                  <div class="block">
+                    <div class="block__nmb">02</div>
+                    <div class="block__text text">Як і smart, адаптивним освітленням керує запрограмована система, яка отримує інформацію з датчиків. Завдяки цьому вона може імітувати натуральне денне світло та рух об’єктів за вікном, відображати зміну погоди та створювати відчуття близькості до природи.</div>
+                  </div>
+                  <!-- end block -->
+                </div>
+              </div>
+              <!-- end section-block -->
+            </div>
+          </div>
+          <div class="section__word-bottom text-stroke">adaptive</div>
+        </section>
+        <!-- end section -->
+        <!-- begin section -->
+        <section class="fullpage-section section js-lazy" data-background-image="img/services/img-7.jpg">
+          <div class="section__block">
+            <div class="container">
+              <!-- begin section-block -->
+              <div class="section-block">
+                <div class="section-block__title">
+                  <h2 class="title">Світлове хюгге</h2>
+                </div>
+                <div class="section-block__blocks">
+                  <!-- begin block -->
+                  <div class="block">
+                    <div class="block__nmb">01</div>
+                    <div class="block__text text">Світло будує емоцію. За допомогою продуманої світлової композиції звичайну ландшафтну композицію можна перетворити на місце, яке не захочеться полишати.</div>
+                  </div>
+                  <!-- end block -->
+                  <!-- begin block -->
+                  <div class="block">
+                    <div class="block__nmb">02</div>
+                    <div class="block__text text">За допомогою світло-архітектурних елементів ми підкреслюємо рослини, ландшафт та створюємо неповторний затишний простір.</div>
+                  </div>
+                  <!-- end block -->
+                </div>
+              </div>
+              <!-- end section-block -->
+            </div>
+          </div>
+          <div class="section__word-bottom text-stroke">hugge</div>
+          <!-- begin footer -->
+          <footer class="footer">
+            <div class="container">
+              <div class="footer__inner">
+                <div class="footer__logo">
+                  <!-- begin logo -->
+                  <a href="/" class="logo logo--color">
+                    <span class="logo__img">
+                      <img src="img/logo-color.png" width="35" height="36" alt="">
+                    </span>
+                    <span class="logo__text">
+                      <span>Optimum</span>
+                      <span>led</span>
+                    </span>
+                  </a>
+                  <!-- end logo -->
+                </div>
+                <div class="footer__copy">Copyright 2019. Все права защищены</div>
+                <div class="footer__btn">
+                  <a class="scroll-top" href="#">
+                    <span class="scroll-top__title">Наверх</span>
+                    <span class="scroll-top__arrow"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </footer>
+          <!-- end footer -->
+        </section>
+        <!-- end section -->
+      </div>
+      <div class="fullpage-pagination js-fullpage-pagination"></div>
     </div>
     <!-- END content -->
     <!-- BEGIN scripts -->

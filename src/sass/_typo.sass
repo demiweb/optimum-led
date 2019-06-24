@@ -13,13 +13,31 @@ h1, h2, h3, h4, h5, h6
 
 .title
   color: $white
-  font-size: 74px
   line-height: .9
+  +css-lock(42, 74, 320, 1199, font-size)
   strong
-    display: block
+    // display: block
+
+  &--img
+    position: relative
+    display: inline-block
+    img
+      position: absolute
+      +css-lock(-200, -325, 320, 1199, right)
+      top: 50%
+      transform: translate(0, -50%)
+      max-width: none
+      +css-lock(300, 500, 320, 1199, width)
+      pointer-events: none
 
 .subttl
   font-size: $fz-md
+  line-height: 1.2
+  +css-lock(16, 21, 320, 1199, font-size)
+  &--lg
+    +css-lock(18, 30, 320, 1199, font-size)
+    color: $gray-lightest
+    text-transform: uppercase
 
 .h1, h1
 
@@ -28,7 +46,22 @@ h1, h2, h3, h4, h5, h6
 .h3, h3
 
 .h4, h4
+  font-size: $fz-lg
+  color: $white
+  +bold
+  line-height: 1.2
+  em
+    color: $accent
+    display: block
+  +sm
+    font-size: $fz-md
 
 .h5, h5
 
 .h6, h6
+
+.text
+  font-size: 17px
+  color: $gray-light
+  +sm
+      font-size: $fz

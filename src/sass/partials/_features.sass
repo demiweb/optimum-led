@@ -1,0 +1,69 @@
+.features
+  +flex(flex-start, normal, row, wrap)
+  text-align: center
+  padding-left: 15px
+  padding-right: 15px
+  // +coverdiv
+  width: 100%
+  min-height: 100vh
+  z-index: 1
+  +sm
+    padding-top: 5%
+    padding-bottom: 5%
+  &__title
+    position: absolute
+    width: 100%
+    top: 10%
+    left: 0
+    z-index: 3
+    +sm
+      position: static
+      margin-bottom: 25px
+
+  &--plain
+    .feature
+      &:nth-child(even)
+        background-color: $black-dark
+      &:nth-child(odd)
+        background-color: $black-darkest
+
+.feature
+  width: 33.33333%
+  padding-top: 30%
+  padding-left: 15px
+  padding-right: 15px
+  text-align: left
+  +rh(700)
+    padding-top: 15%
+  +sm
+    width: 100%
+    padding-top: 20px
+    padding-bottom: 20px
+    padding-left: 0
+    padding-right: 0
+  &:nth-child(odd)
+    background-color: $black-dark
+  &:nth-child(even)
+    background-color: $black-darkest
+  &__inner
+    max-width: 355px
+    margin-left: auto
+    margin-right: auto
+  &__title
+    color: $white
+    position: relative    
+    margin-bottom: 15px
+  &__title-has-icon
+    padding-left: 60px
+    .icon
+      fill: currentColor
+      font-size: 50px
+      position: absolute
+      top: 0
+      left: 0
+  &__text
+    color: $gray
+  &__subttl
+    margin-bottom: 15px
+  
+  

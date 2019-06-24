@@ -1,10 +1,10 @@
 import Animator from './Animator';
-import { ACTIVE, $WIN } from '../../constants';
+import { ACTIVE, $WIN, $DOC } from '../../constants';
 import anime from 'animejs';
 import '../../lib/touchevents';
 
 export default class Paginator {
-  constructor(wrap, { next, prev, pagination, customPagging = true, allowWheel = false }) {
+  constructor(wrap, { next, prev, pagination, customPagging = true, allowWheel = false, pagingFromZero = true, zeroSlide = 1 }) {
     this.$wrap = $(wrap);
     this.$sections = this.$wrap.children();
     this.$pagination = $(pagination);
@@ -16,6 +16,9 @@ export default class Paginator {
     this.$next = $(next);
     this.allowWheel = allowWheel;
     this.customPagging = customPagging;
+    this.pagingFromZero = pagingFromZero;
+    this.zeroSlide = zeroSlide;
+    this.anchor = 'js-fullpage-anchore';
   };
 
   init() {
@@ -68,7 +71,7 @@ export default class Paginator {
       this.nextSection = this.activeSection + 1;
     };
 
-    if (this.nextSection >= this.$sections.length || this.nextSection < 0 || this.nextSection === this.activeSection) return;
+    if (this.nextSection >= this.$sections.length || this.nextSection < this.zeroSlide || this.nextSection === this.activeSection) return;
 
     this.allowScroll = false;
 
@@ -87,6 +90,14 @@ export default class Paginator {
 
     if (this.getElements) {
       this.animator.getElements = this.getElements;
+    };
+
+    if (this.enterAnimations) {
+      this.animator.enterAnimations = this.enterAnimations;
+    };
+
+    if (this.exitAnimations) {
+      this.animator.exitAnimations = this.exitAnimations;
     };
   
     this.animator.animate();
@@ -109,12 +120,19 @@ export default class Paginator {
       this.$pagination.append('<ul></ul>');
       for (let i = 0; i < this.$sections.length; i++) {
         const $list = this.$pagination.find('ul');
-        let btnInner;      
+        let btnInner, number;
+
+        if (this.pagingFromZero) {
+          number = i < 10 ? `0${i}` : i;  
+        } else {
+          number = i + 1 < 10 ? `0${i + 1}` : i + 1;  
+        };
+        
 
         if (i === 0) {
-          $list.append(`<li><a href="#" class="${ACTIVE}" data-index="${i}">${i + 1}</a></li>`);
+          $list.append(`<li><a href="#" class="${ACTIVE}" data-index="${i}">${number}</a></li>`);
         } else {
-          $list.append(`<li><a href="#" data-index="${i}">${i + 1}</a></li>`);
+          $list.append(`<li><a href="#" data-index="${i}">${number}</a></li>`);
         };      
       };
       this.$buttons = this.$pagination.find('a');
@@ -126,6 +144,10 @@ export default class Paginator {
   };
 
   _paginateOnClick() {
+    if (this.anchor) {
+      // this.$anchors.on('click', this.paginate.bind(this));
+      $DOC.on('click', `.${this.anchor}`, this.paginate.bind(this));
+    };
     if (this.$buttons && this.$buttons.length > 0) {
       this.$buttons.on('click', this.paginate.bind(this));
     };

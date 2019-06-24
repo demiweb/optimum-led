@@ -1,0 +1,59 @@
+{%set
+descr = [
+  {
+    title: '<em>3-15 днів</em>
+розробка проекту',
+    text: 'Створюємо від 3 до 9 варіантів
+проекту. Прораховуємо кількість освітлювальних приладів, їх 
+розташування і взаємодію.'
+  },
+  {
+    title: '<em>14 днів</em>
+Розробка обладнання',
+    text: 'Розробляємо обладнання під обраний проект або підбираємо прилади серед пропозицій світових постачальників.'
+  },
+  {
+    title: '<em>До 24 днів</em>
+виготовлення і доставка',
+    text: 'Розробляємо обладнання під обраний проект або підбираємо прилади серед пропозицій світових постачальників.'
+  },
+  {
+    title: '<em>3-15 днів</em>
+розробка проекту',
+    text: 'Збираємо обладнання на виробництві
+або чекаємо доставку.'
+  }
+]
+%}
+
+<!-- begin section -->
+<section class="section js-lazy" data-background-image="img/about/img-5.jpg">
+  <div class="section__block">
+    <div class="container">
+      <div class="section__right">
+        <!-- begin descr-sm -->
+        <div class="descr-sm">
+          <div class="descr-sm__title">
+            <h2 class="title">Реалізація <strong>концепції освітлення</strong></h2>
+          </div>
+
+          <div class="descr-sm__content">
+            {% for i in descr %}
+            <!-- begin descr-sm-item -->
+            <div class="descr-sm-item">
+              <div class="descr-sm-item__title">
+                <h4 class="h4">{{ i.title | safe }}</h4>
+              </div>
+
+              <div class="descr-sm-item__text text">{{ i.text | safe }}</div>
+            </div>
+            <!-- end descr-sm-item -->
+            {% endfor %}
+          </div>
+        </div>
+        <!-- end descr-sm -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end section -->

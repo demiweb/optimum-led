@@ -16,12 +16,12 @@
             name = 'nav',
             modifications = { wrap: 'nav--dropdown', item: '', link: '' },
             list = [
-              { link: 'Світловий маркетинг', href: '#1' },
-              { link: 'Архітектурне освітлення', href: '#2' },
-              { link: 'Smart освітлення', href: '#3' },
-              { link: 'Адаптивне освітлення', href: '' },
-              { link: 'Світлова скульптура', href: '' },
-              { link: 'Світлове хюгге', href: '' }
+              { modLink: 'js-fullpage-anchore', link: 'Світловий маркетинг', attributes: { 'data-index': '1' } },
+              { modLink: 'js-fullpage-anchore', link: 'Архітектурне освітлення', attributes: { 'data-index': '2' } },
+              { modLink: 'js-fullpage-anchore', link: 'Smart освітлення', attributes: { 'data-index': '3' } },
+              { modLink: 'js-fullpage-anchore', link: 'Адаптивне освітлення', attributes: { 'data-index': '4' } },
+              { modLink: 'js-fullpage-anchore', link: 'Світлова скульптура', attributes: { 'data-index': '5' } },
+              { modLink: 'js-fullpage-anchore', link: 'Світлове хюгге', attributes: { 'data-index': '6' } }
             ]
           ),
           modItem: 'has-submenu',
@@ -33,7 +33,33 @@
   </div>
 
   <div class="header__burger">
-    <a href="#" class="burger"><span></span></a>
+    <a href="#" class="burger js-burger"><span></span></a>
   </div>
 </header>
 <!-- end header -->
+
+<!-- begin menu -->
+<div class="menu js-menu">
+  <a href="#" class="menu__close js-menu-close"></a>
+  <div class="menu__inner">
+    <div class="menu__block js-lazy" data-background-image="img/bg-menu.jpg">
+      <div class="menu__logo">
+        {% include "partials/_logo.html" %}
+      </div>
+
+      <div class="menu__nav">
+        {{ mixins.list(
+          name = 'nav',
+          modifications = { wrap: 'nav--menu', item: '', link: '' },
+          list = [
+            { link: 'Головна', item: '<span>01</span>' },
+            { link: 'Про нас', item: '<span>02</span>' },
+            { link: 'Послуги', item: '<span>03</span>' },
+            { link: 'Контакти', item: '<span>04</span>' }
+          ]
+        ) }}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end menu -->

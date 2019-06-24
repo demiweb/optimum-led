@@ -1,0 +1,65 @@
+.menu
+  visibility: hidden
+  opacity: 0
+  background-color: $white
+  position: fixed
+  z-index: 20
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  // +tr(opacity .3s, visibility .3s)
+  &.is-active
+    visibility: visible
+    opacity: 1
+  &__inner
+    width: percentage(1720/1920)
+    height: 100%
+    padding: 40px
+    background-color: $black
+    +md
+      padding: 30px
+    +sm
+      padding: 20px
+    +xs
+      padding: 10px
+  &__block
+    +cover
+    height: 100%
+    padding: 25px
+    position: relative
+    +flex(flex-start, center)
+    +sm
+      padding: 15px
+    +xs
+      padding: 10px
+  &__logo
+    position: absolute
+    z-index: 1
+    top: 25px
+    left: 25px
+  &__nav
+    margin-left: percentage(265/1620)
+    +xs
+      margin-left: 0
+  &__close
+    color: $black
+    +icon-close(30, 1, currentColor)
+    position: absolute
+    z-index: 1
+    top: 75px
+    right: percentage(100/1920)
+    transform: translate(50%, 0)
+    +tr(color .3s)
+    +hover
+      color: $accent
+    +md
+      top: 45px
+    +sm
+      top: 30px
+      width: 25px
+      height: 25px
+    +xs
+      top: 20px
+      width: 20px
+      height: 20px

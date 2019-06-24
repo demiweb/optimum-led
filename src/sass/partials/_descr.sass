@@ -1,0 +1,96 @@
+.descr
+  color: $white
+  &__title
+    margin-bottom: 150px
+    +xl
+      margin-bottom: 120px
+    +lg
+      margin-bottom: 100px
+    +md
+      margin-bottom: 80px
+    +sm
+      margin-bottom: 50px
+    +xs
+      margin-bottom: 30px
+  &__content
+    +flex()
+    +sm
+      display: block
+  &__block
+    position: relative
+
+.descr-block
+  padding-right: 35px
+  max-width: 485px
+  +md
+    padding-right: 25px
+  +sm
+    padding-right: 0
+    +notlast
+      margin-bottom: 15px
+  &__title
+    margin-bottom: 15px
+    position: relative
+    position: relative
+    padding-left: 35px
+    +md
+      padding-left: 25px
+  &__title-icon
+    position: absolute
+    left: 0
+    top: .4em
+    border-radius: 50%
+    height: 14px
+    width: 14px
+    border: 1px solid currentColor
+    +inline-flex(center, center)
+    vertical-align: middle
+    +before
+      display: inline-block
+      border-radius: 50%
+      width: 6px
+      height: 6px
+      background-color: currentColor
+
+  &__text
+    
+    padding-left: 35px
+    position: relative
+    +before
+      position: absolute
+      width: 1px
+      background-color: currentColor
+      top: -.5em
+      bottom: 1.2em
+      left: 6px
+    +md
+      padding-left: 25px
+
+.descr-sm
+  &__content
+    +flex(flex-start, normal, row, wrap)
+  &__title
+    margin-bottom: 55px
+    +md
+      margin-bottom: 35px
+    +sm
+        margin-bottom: 25px
+
+.descr-sm-item
+  width: 50%
+  margin-bottom: 35px
+  padding-right: 15px
+  +md
+    margin-bottom: 25px
+  +sm
+    margin-bottom: 15px
+  +xs
+    width: 100%
+  &__title
+    color: $white
+    margin-bottom: 25px
+    +md
+      margin-bottom: 15px
+    +sm
+      margin-bottom: 10px
+

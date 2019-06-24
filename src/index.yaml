@@ -2,3 +2,5 @@ ProjectTitle: optimum-led
 
 PageList:
 - file: home.html
+- file: about.html
+- file: services.html

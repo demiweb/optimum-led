@@ -46,6 +46,51 @@ export default function setHome(page) {
       });
     }, FLASH_DURATION);
   };
+  paginator.enterAnimations = (self) => {
+    self.tl
+      .add({
+        targets: self.target,
+        opacity: [0, 1],
+        zIndex: [0, 1],
+        duration: 600
+      })      
+      .add({
+        targets: self.getElements(self.target).block,
+        opacity: [0, 1],
+        translateY: [-30, 0],
+        duration: 800
+      })
+      .add({
+        targets: self.getElements(self.target).img,
+        opacity: [0, 1],
+        duration: 700
+      });
+  };
+  paginator.exitAnimations = (self) => {
+    console.log(self);
+    self.getElements(self.current).word.classList.add(ANIMATE);
+    self.tl
+      .add({
+        targets: self.getElements(self.current).block,
+        opacity: [1, 0],
+        translateY: [0, -30],
+        duration: 800
+      })
+      .add({
+        targets: self.getElements(self.current).img,
+        opacity: [1, 0],
+        duration: 700
+      })      
+      .add({
+        targets: self.current,
+        opacity: [1, 0],
+        zIndex: [1, 0],
+        duration: 600
+      });
+    self.tl.finished.then(() => {
+      self.getElements(self.current).word.classList.remove(ANIMATE);
+    });
+  };
   paginator.getElements = (section) => {
     const elements = {
       word: section.querySelector('.flashIn'),

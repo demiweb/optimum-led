@@ -5,11 +5,16 @@ body
   +light
   color: $c-text
   +no-scroll
+  +sm
+    font-size: $fz-sm
 
 input, textarea
   font-family: inherit
   +placeholder
     font-family: inherit
+
+.overflow-visible
+  overflow: visible !important
 
 .icon
   display: inline-block
@@ -24,6 +29,7 @@ input, textarea
   padding-right: 15px
 
 .logo
+  $this: &
   color: $white
   +extrabold
   text-transform: uppercase
@@ -31,12 +37,34 @@ input, textarea
   // max-width: 150px
   +flex(flex-start, center)
   line-height: 0.95
+  +xs
+    font-size: $fz
+    img
+        // max-width: 75%
+        height: 28px
+        width: 28px
+  +r(389)
+    font-size: $fz-sm
+    img
+      height: 22px
+      width: 22px
 
   &__img
     margin-right: 12px
+    +sm
+      margin-right: 5px
+    +r(389)
+      margin-right: 2px
   &__text
     span
       display: block
+  &--color
+    #{$this}__text
+      span
+        &:first-child
+          color: $accent
+        &:last-child
+          color: #66656a
 
 .link-arrow
   color: $white
@@ -75,11 +103,84 @@ input, textarea
       right: 0
 
 .text-stroke
-  font-size: 250px
+  // font-size: 250px
+  line-height: .9
   text-transform: uppercase
   +bold
   -webkit-text-stroke: 1px $gray-dark
   color: transparent
+  +css-lock(100, 250, 320, 1199, font-size)
+
+.scroll-down
+  $this: &
+  color: $white
+  position: relative
+  padding-bottom: 50px
+  display: inline-block
+  +hover
+    #{$this}__arrow
+      height: 60px
+  &__arrow
+    height: 50px
+    display: inline-block
+    position: absolute
+    left: 50%
+    top: 1.5em
+    transform: translate(-50%, 0)
+    +tr(height .3s)
+    +before
+      height: 100%
+      width: 1px
+      background-color: currentColor
+      position: absolute
+      left: 50%
+      top: 0
+      transform: translate(-50%, 0)
+    +after
+      +icon-arrow(10, 10, 1, currentColor, -45)
+      position: absolute
+      bottom: 0
+      left: 50%
+      transform: translate(-50%, 0) rotate(-45deg)
+
+.scroll-top
+  $this: &
+  display: inline-block
+  position: relative
+  padding-top: 15px
+  padding-bottom: 15px
+  padding-right: 30px
+  +hover
+    #{$this}__arrow
+      height: 40px
+  &__arrow
+    height: 30px
+    width: 10px
+    display: inline-block
+    position: absolute
+    top: 50%
+    right: 0
+    transform: translate(0, -50%)
+    vertical-align: middle
+    +tr(height .3s)
+
+    +before
+      height: 100%
+      background-color: currentColor
+      width: 1px
+      position: absolute
+      left: 50%
+      top: 0
+      transform: translate(-50%, 0)
+    +after
+      +icon-arrow(10, 10, 1, currentColor, 135)
+      position: absolute
+      top: 0
+      left: 50%
+      transform: translate(-50%, 0) rotate(135deg)
+
+
+// ========================= animations ==============================
 
 .flashIn
   animation-duration: 1s

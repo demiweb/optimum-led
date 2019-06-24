@@ -1,0 +1,97 @@
+{# <div class="fullpage js-fullpage">
+    <div class="fullpage__slide is-active" id="1">
+      section 1
+    </div>
+    {% for i in range(0, 5) %}
+    <!-- begin fullpage__item -->
+    <div class="fullpage__slide" id="{{ i + 2 }}">
+      section {{ i + 2 }}
+    </div>
+    <!-- end fullpage__item -->
+    {% endfor %}
+  </div> #}
+
+<div class="fullpage js-fullpage" data-page="services">
+
+  <!-- begin section -->
+  <section class="fullpage-section is-active section section--center js-lazy" data-background-image="img/services/img-1.jpg">
+    <div class="section__block">
+      <div class="container">
+        <div class="section__center">
+          <h1 class="title"><strong>Ми викликаємо емоції</strong> за допомогою світла</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="section__scroll-down">
+      {{ mixins.scrollDown() }}
+    </div>
+  </section>
+  <!-- end section -->
+
+  {% for i in sections %}
+  <!-- begin section -->
+  <section class="fullpage-section section{% if i.mod %} {{ i.mod }}{% endif %} js-lazy" data-background-image="img/services/{{ i.img }}">
+    <div class="section__block">
+      <div class="container">
+        <!-- begin section-block -->
+        <div class="section-block">
+          <div class="section-block__title"><h2 class="title">{{ i.title | safe }}</h2></div>
+
+          {% if i.first %}
+          <div class="section-block__descr">
+            <div class="section-block__descr-text text">Світловий маркетинг або емоційне освітлення
+              побудоване на психології сприйняття світла
+              та кольорів. Використовується, щоб привести
+              людину до певного емоційного стану. 
+            Дозволяє вирішити визначене завдання бренду:</div>
+
+            <div class="section-block__descr-list">
+              {{ mixins.list(
+                name = 'section-list',
+                modifications = { wrap: '', item: '', link: '' },
+                list = [
+                  { item: '<span class="section-list__icon"></span>викликати почуття, з яким бренд має асоціюватися' },
+                  { item: '<span class="section-list__icon"></span>імітувати емоцію від придбання' },
+                  { item: '<span class="section-list__icon"></span>проанонсувати враження від використання продукту' },
+                  { item: '<span class="section-list__icon"></span>стати одним з факторів в процесі прийняття рішення про покупку' }
+                ]
+              ) }}
+            </div>
+
+            <div class="section-block__descr-text text">Будуючи світлову композицію за принципами
+              маркетингу, ми вивчаємо поведінку
+              та вподобання цільової аудиторії, а також
+            вплив світла на неї в різних умовах.</div>
+          </div>
+
+          {% else %}
+
+          <div class="section-block__blocks">
+            {% for j in i.blocks %}
+            <!-- begin block -->
+            <div class="block">
+              <div class="block__nmb">{{ j.nmb }}</div>
+              <div class="block__text text">{{ j.text }}</div>
+            </div>
+            <!-- end block -->
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <!-- end section-block -->
+      </div>
+    </div>
+
+    <div class="section__word-bottom text-stroke">{{ i.word }}</div>
+
+    {% if i.last %}
+    {% include "partials/_footer.html" %}
+    {% endif %}
+  </section>
+  <!-- end section -->
+  {% endfor %}  
+
+</div>
+
+<div class="fullpage-pagination js-fullpage-pagination"></div>

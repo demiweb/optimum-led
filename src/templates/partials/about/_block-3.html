@@ -1,0 +1,59 @@
+{%set
+features = [
+  {
+    title: mixins.icon('value') + '<h4 class="h4">Підвищуємо вартість
+нерухомості до 25%</h4>',
+    text: 'Продумана світлова композиція
+здатна підвищити привабливість
+і статусність будівлі, а отже відчутно
+підняти вартість нерухомості.'
+  },
+  {
+    title: mixins.icon('sketch') + '<h4 class="h4">Робимо фокус
+на архітектурі та дизайні</h4>',
+    text: 'Розробляємо дизайн світла, орієнтуючись
+на архітектуру. Це допомагає підкреслити
+елементи будівель і дизайн приміщень,
+застосувати світло в створенні декоративних
+елементів, підтримати фірмовий стиль
+компаній в комерційних приміщеннях.'
+  },
+  {
+    title: mixins.icon('work-station') + '<h4 class="h4">Формуємо комфортний
+простір для життя</h4>',
+    text: 'Ми створюємо світ, який покращує
+умови для роботи і відпочинку: враховуємо
+показники світлового забруднення,
+емоційну реакцію людини
+на світло і колір, функціональне
+призначення приміщення і сценарії
+використання освітлення.'
+  }
+]
+%}
+
+<!-- begin section -->
+<section class="section overflow-visible">
+  <!-- begin features -->
+  <div class="features">
+    <div class="features__title">
+      <h2 class="title">Які завдання <strong>ми вирішуємо</strong></h2>
+    </div>
+    {% for i in features %}
+    <!-- begin feature -->
+    <div class="feature">
+      <div class="feature__inner">
+        <div class="feature__title feature__title-has-icon">{{ i.title | safe }}</div>
+
+        <div class="feature__text text">{{ i.text | safe }}</div>
+      </div>
+      
+    </div>
+    <!-- end feature -->
+    {% endfor %}
+  </div>
+  <!-- end features -->
+
+  <img data-src="img/about/img-3.png" alt="" class="section__float-img js-lazy">
+</section>
+<!-- end section -->

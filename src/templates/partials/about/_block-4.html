@@ -1,0 +1,55 @@
+{%set
+features = [
+  {
+    title: 'Концепція внутрішнього освітлення',
+    subttl: 'до 12 днів',
+    text: 'Задає атмосферу, підкреслює
+дизайн або змінює сприйняття
+простору: візуально розширює
+приміщення, піднімає стелі,
+створює ритм, ускладнює обсяг.'
+  },
+  {
+    title: 'Концепція
+зовнішнього освітлення',
+    subttl: '4-10 днів',
+    text: 'Підкреслює архітектурні
+елементи, заповнює прогалини,
+змінює загальне сприйняття будови,
+виділяє його на тлі інших будинків
+або вбудовує в загальну композицію.'
+  },
+  {
+    title: 'Концепція освітлення
+групи будівель',
+    subttl: '14-30 днів',
+    text: 'Допомагає створити гармонійну
+архітектурну композицію міста.'
+  }
+]
+%}
+
+<!-- begin section -->
+<section class="section">
+  <!-- begin features -->
+  <div class="features features--plain">
+    <div class="features__title">
+      <h2 class="title">Розробка <strong>концепції освітлення</strong></h2>
+    </div>
+    {% for i in features %}
+    <!-- begin feature -->
+    <div class="feature">
+      <div class="feature__inner">
+        <div class="feature__title"><h4 class="h4">{{ i.title | safe }}</h4></div>
+
+        <div class="feature__subttl text">{{ i.subttl | safe }}</div>
+
+        <div class="feature__text text">{{ i.text | safe }}</div>
+      </div>
+    </div>
+    <!-- end feature -->
+    {% endfor %}
+  </div>
+  <!-- end features -->
+</section>
+<!-- end section -->

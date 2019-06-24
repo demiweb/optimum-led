@@ -11,8 +11,18 @@
     height: $controls-height
     background-color: $gray-darkest
     +flex(space-between, center)
+    +xl
+      width: 60%
+    +lg
+      width: 100%
+    +sm
+      height: $controls-height-mob
   &__btns
     width: 180px
+    +sm
+      width: 130px
+    +xs
+      width: 100px
   &__prev,
   &__next
     position: relative
@@ -30,22 +40,37 @@
       +icon-arrow(8, 8, 1, currentColor, 45)
       +vcenter
       transform: translate(-40%, -50%) rotate(45deg)
+    +sm
+      height: 30px
+      width: 30px
   &__next
     +rotate(180)
   &__prev
-    margin-right: 40px
+    margin-right: 15%
+  &__slides-nav
+    flex-grow: 1
 
 .home-page
   height: 100%
   position: relative
   padding-bottom: $controls-height
+  +sm
+    padding-bottom: $controls-height-mob
   .container
     height: 100%
     +flex(center, normal, column)
   &__title
     margin-bottom: 15px
+    +sm
+      margin-bottom: 10px
   &__subttl
     margin-bottom: 120px
+    +md
+      margin-bottom: 100px
+    +sm
+      margin-bottom: 80px
+    +xs
+      margin-bottom: 50px
 
   &__img
     position: absolute
@@ -53,35 +78,49 @@
     top: 0px - $header-height
     right: 0
     z-index: 0
-    z-index: 0
     opacity: 0
+    +md
+      top: 0px - $header-height-md
+    +sm
+      top: 0px - $header-height-sm
   &__block
     position: relative
     z-index: 1
     max-width: 50%
     opacity: 0
+    +md
+      max-width: 75%
+    +sm
+      max-width: none
 
   &__word
     position: absolute
     z-index: 1
     left: 45%
-    bottom: 10%
+    bottom: 20%
 
 .home-nav
   +flex(space-between, center)
+  width: 100%
+  +sm
+    justify-content: flex-start
   &__nmb
     display: block
     margin-bottom: 15px
+    +sm
+      margin-bottom: 0
   &__item
     display: block
     color: $gray-dark
     position: relative
     padding-bottom: 12px
-    padding-left: 50px
-    padding-right: 50px
+    +css-lock(15, 45, 1199, 1799, padding-left)
+    +css-lock(15, 45, 1199, 1799, padding-right)
     width: 33.33333%
     +hover
       @extend .home-nav__item.is-active
+    +sm
+      width: auto
     &.is-active
       color: $gray-light
       +before
@@ -90,13 +129,17 @@
     +before
       position: absolute
       bottom: 0
-      left: 50px
+      left: 45px
       width: 50px
       background-color: currentColor
       height: 1px
       visibility: hidden
       opacity: 0
       +tr(visibility .3s, opacity .3s)
+      +css-lock(15, 45, 1199, 1799, left)
+      +sm
+        width: 25px
+
     +notlast
       +after
         position: absolute
@@ -105,3 +148,8 @@
         background-color: $gray-dark
         top: .5em
         right: 0
+        +sm
+          display: none
+  &__text
+    +sm
+      display: none

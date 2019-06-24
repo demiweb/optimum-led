@@ -1,0 +1,126 @@
+.section
+  +cover
+  +flex(flex-start, center)
+  min-height: 100vh
+  overflow: hidden
+  position: relative
+  background-color: $black-darkest
+  padding: $header-height 0
+  +md
+    padding: $header-height-md 0
+  +sm
+    padding: $header-height-sm 0
+  &:nth-child(even)
+    background-color: $black-darken
+  &:nth-child(odd)
+    background-color: $black-light
+  &__block
+    width: 100%
+  &__word
+    position: absolute
+    white-space: nowrap
+    top: 20%
+    left: -20%
+  &__word-bottom
+    @extend .section__word
+    left: 30%
+    top: auto
+    bottom: 5%
+  &__scroll-down
+    position: absolute
+    bottom: 35px
+    left: 50%
+    transform: translate(-50%, 0)
+  &__float-img
+    position: absolute
+    top: 50%
+    right: 0
+    z-index: 2
+    pointer-events: none
+    +r(1799)
+      display: none
+  &__right
+    width: 50%
+    margin-left: 50%
+    +md
+      width: 60%
+      margin-left: 40%
+    +sm
+      width: 70%
+      margin-left: 30%
+    +xs
+      width: auto
+      margin-left: 0
+  &__center
+    max-width: 750px
+    margin-left: auto
+    margin-right: auto
+
+
+  &--center
+    text-align: center
+    justify-content: center
+
+.section-block
+  &__title
+    margin-bottom: 60px
+    +lg
+      margin-bottom: 50px
+    +md
+      margin-bottom: 40px
+    +sm
+      margin-bottom: 30px
+  &__descr-text
+    position: relative
+    border-left: 1px solid currentColor
+    padding: 15px
+    margin-bottom: 50px
+    max-width: 380px
+    +lg
+      margin-bottom: 40px
+    +md
+      margin-bottom: 30px
+    +sm
+      margin-bottom: 20px
+  &__descr-list
+    margin-bottom: 50px
+    +lg
+      margin-bottom: 40px
+    +md
+      margin-bottom: 30px
+    +sm
+      margin-bottom: 20px
+  &__blocks
+    +flex(flex-start, normal, row, wrap)
+    .block
+      +notlast
+        margin-right: 10%
+
+.section-list
+  @extend .text
+  li
+    position: relative
+    padding-left: 20px
+    margin-bottom: 35px
+    +lg
+      margin-bottom: 25px
+    +md
+      margin-bottom: 15px
+    +sm
+      margin-bottom: 10px
+  &__icon
+    display: inline-block
+    border: 1px solid $accent
+    +inline-flex(center, center)
+    position: absolute
+    left: 0
+    top: .3em
+    height: 14px
+    width: 14px
+    border-radius: 50%
+    +before
+      background-color: $accent
+      border-radius: 50%
+      height: 6px
+      width: 6px
+

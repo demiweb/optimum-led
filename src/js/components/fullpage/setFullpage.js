@@ -2,13 +2,23 @@
 // import anime from 'animejs';
 // import { ACTIVE } from '../../constants';
 import setHome from './setHome';
+import setServicesPage from './setServicesPage';
 
 export default function setFullpage() {
   const page = document.querySelector('.js-fullpage');  
 
   if (!page) return;
 
-  setHome(page);
+  const name = page.getAttribute('data-page');
+
+  if (name === 'home') {
+    setHome(page);
+  };
+  if (name === 'services') {
+    setServicesPage(page);
+  };
+
+  
 
   
   
