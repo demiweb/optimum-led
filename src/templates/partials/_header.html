@@ -1,3 +1,29 @@
+{% if page === 'services' %}
+{% set servicesHref = '#' %}
+{% set 
+  servicesNav = [
+    { modLink: 'js-fullpage-anchor', link: 'Світловий маркетинг', attributes: { 'data-index': '1' } },
+    { modLink: 'js-fullpage-anchor', link: 'Архітектурне освітлення', attributes: { 'data-index': '2' } },
+    { modLink: 'js-fullpage-anchor', link: 'Smart освітлення', attributes: { 'data-index': '3' } },
+    { modLink: 'js-fullpage-anchor', link: 'Адаптивне освітлення', attributes: { 'data-index': '4' } },
+    { modLink: 'js-fullpage-anchor', link: 'Світлова скульптура', attributes: { 'data-index': '5' } },
+    { modLink: 'js-fullpage-anchor', link: 'Світлове хюгге', attributes: { 'data-index': '6' } }
+  ]
+ %}
+{% else %}
+{% set servicesHref = 'services.html' %}
+{% set 
+  servicesNav = [
+    { href: 'services.html#emotions', link: 'Світловий маркетинг' },
+    { href: 'services.html#architecture', link: 'Архітектурне освітлення' },
+    { href: 'services.html#smart', link: 'Smart освітлення' },
+    { href: 'services.html#adaptive', link: 'Адаптивне освітлення' },
+    { href: 'services.html#sculpture', link: 'Світлова скульптура' },
+    { href: 'services.html#hugge', link: 'Світлове хюгге'  }
+  ]
+ %}
+{% endif %}
+
 <!-- begin header -->
 <header class="header">
   <div class="header__logo">
@@ -12,17 +38,11 @@
         { link: 'Про нас', modItem: '', modLink: '' },
         {
           link: 'Послуги',
+          href: servicesHref,
           item: mixins.list(
             name = 'nav',
             modifications = { wrap: 'nav--dropdown', item: '', link: '' },
-            list = [
-              { modLink: 'js-fullpage-anchore', link: 'Світловий маркетинг', attributes: { 'data-index': '1' } },
-              { modLink: 'js-fullpage-anchore', link: 'Архітектурне освітлення', attributes: { 'data-index': '2' } },
-              { modLink: 'js-fullpage-anchore', link: 'Smart освітлення', attributes: { 'data-index': '3' } },
-              { modLink: 'js-fullpage-anchore', link: 'Адаптивне освітлення', attributes: { 'data-index': '4' } },
-              { modLink: 'js-fullpage-anchore', link: 'Світлова скульптура', attributes: { 'data-index': '5' } },
-              { modLink: 'js-fullpage-anchore', link: 'Світлове хюгге', attributes: { 'data-index': '6' } }
-            ]
+            list = servicesNav
           ),
           modItem: 'has-submenu',
           modLink: ''

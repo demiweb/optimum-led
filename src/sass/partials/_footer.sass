@@ -1,25 +1,37 @@
 .footer
   font-size: 16px
   background-color: $white
+  position: relative
+  z-index: 2
+  // z-index: 15
+  // position: fixed
+  // left: 0
+  // right: 0
+  // bottom: 0
   +sm
-    font-size: 14px
+    font-size: 14px  
   &__inner
     +flex(space-between, center, row, wrap)
     padding-top: 30px
     padding-bottom: 30px
+    height: $footer-height
     +lg
       padding-top: 15px
       padding-bottom: 15px
+      height: $footer-height-lg
     +md
       padding-top: 10px
       padding-bottom: 10px
+      height: $footer-height-md
     +sm
       justify-content: center
+    +xs
+      height: $footer-height-xs
   &__copy
     color: $gray-dark
     flex-grow: 1
     text-align: center
-    +sm
+    +xs
       width: 100%
       padding-top: 10px
       padding-bottom: 10px

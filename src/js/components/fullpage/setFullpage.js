@@ -3,6 +3,7 @@
 // import { ACTIVE } from '../../constants';
 import setHome from './setHome';
 import setServicesPage from './setServicesPage';
+import setAboutPage from './setAboutPage';
 
 export default function setFullpage() {
   const page = document.querySelector('.js-fullpage');  
@@ -17,6 +18,10 @@ export default function setFullpage() {
   if (name === 'services') {
     setServicesPage(page);
   };
+  if (name === 'about') {
+    setAboutPage(page);
+  };
+
 
   
 

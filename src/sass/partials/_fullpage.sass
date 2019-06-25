@@ -2,6 +2,7 @@
   height: 100vh
   position: relative
   overflow: hidden
+  background-color: $black
   &__wrap
     position: relative
   &__slide
@@ -29,15 +30,65 @@
   &.is-active
     z-index: 1
     opacity: 1
-  .footer
-    position: absolute
-    left: 0
-    right: 0
-    bottom: 0
+  .ps__rail-y
+    z-index: 5
 
 .fullpage-pagination
   position: fixed
   z-index: 15
   left: 0
-  top: 50%
-  transform: translate(0, -50%)
+  top: 0
+  bottom: 0
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  left: 100px
+  display: none
+  padding-top: $header-height  
+  +xl
+    left: 75px
+  +md
+    left: 50px
+    padding-top: $header-height-md
+  +sm
+    left: 25px
+    padding-top: $header-height-sm
+
+  &.is-active
+    display: flex
+    +rh(550)  
+      display: none
+    +xs
+      display: none
+  +rh(700)
+    a
+      padding-bottom: 20px
+      padding-top: 10px
+  li
+    // margin-bottom: 20px
+    // margin-top: 20px
+    &:first-child
+      display: none
+    &:last-child
+      a
+        +before
+          display: none
+  a
+    color: $gray-dark
+    display: block
+    +tr(color .3s)
+    padding-bottom: 40px
+    padding-top: 20px
+    position: relative
+    font-size: $fz-sm
+    +before
+      position: absolute
+      height: 20px
+      background-color: currentColor
+      width: 1px
+      left: 50%
+      bottom: 0px
+      transform: translate(-50%, 0)
+    &.is-active
+      color: $white    
+

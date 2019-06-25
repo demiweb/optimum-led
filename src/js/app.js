@@ -5,6 +5,8 @@ import sayHello from './lib/sayHello';
 import setLazy from './components/setLazy';
 import setFullPage from './components/fullpage/setFullPage';
 import toggleMenu from './components/toggleMenu';
+import setScrollbar from './components/setScrollbar';
+import correctSectionBgPosition from './components/correctSectionBgPosition';
 
 $(function() {
   // sayHello();
@@ -12,4 +14,6 @@ $(function() {
   setLazy();
   setFullPage();
   toggleMenu();
+  setScrollbar();
+  correctSectionBgPosition();
 });

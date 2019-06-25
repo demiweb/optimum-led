@@ -24,29 +24,28 @@ export default function setHome(page) {
     section.classList.add(ACTIVE);
     word.classList.add(ANIMATE);
 
-    setTimeout(() => {
-      paginator.tl = anime.timeline({ easing: 'linear' });
+    paginator.tl = anime.timeline({ easing: 'linear' });
 
-      paginator.tl
-        .add({
-          targets: block,
-          opacity: [0, 1],
-          translateY: [-30, 0],
-          duration: 800
-        })
-        .add({
-          targets: img,
-          opacity: [0, 1],
-          duratioin: 800
-        });
-
-      paginator.tl.finished.then(() => {
-        paginator.allowScroll = true;
-        word.classList.remove(ANIMATE);
+    paginator.tl
+      .add({
+        targets: block,
+        opacity: [0, 1],
+        translateY: [-30, 0],
+        duration: 800
+      }, `+=${FLASH_DURATION}`)
+      .add({
+        targets: img,
+        opacity: [0, 1],
+        duratioin: 800
       });
-    }, FLASH_DURATION);
+
+    paginator.tl.finished.then(() => {
+      paginator.allowScroll = true;
+      word.classList.remove(ANIMATE);
+    });
   };
   paginator.enterAnimations = (self) => {
+    self.getElements(self.target).word.classList.add(ANIMATE);
     self.tl
       .add({
         targets: self.target,
@@ -59,7 +58,7 @@ export default function setHome(page) {
         opacity: [0, 1],
         translateY: [-30, 0],
         duration: 800
-      })
+      }, `+=${FLASH_DURATION / 2}`)
       .add({
         targets: self.getElements(self.target).img,
         opacity: [0, 1],
@@ -67,20 +66,7 @@ export default function setHome(page) {
       });
   };
   paginator.exitAnimations = (self) => {
-    console.log(self);
-    self.getElements(self.current).word.classList.add(ANIMATE);
     self.tl
-      .add({
-        targets: self.getElements(self.current).block,
-        opacity: [1, 0],
-        translateY: [0, -30],
-        duration: 800
-      })
-      .add({
-        targets: self.getElements(self.current).img,
-        opacity: [1, 0],
-        duration: 700
-      })      
       .add({
         targets: self.current,
         opacity: [1, 0],

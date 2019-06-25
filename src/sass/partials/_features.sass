@@ -1,19 +1,17 @@
 .features
   +flex(flex-start, normal, row, wrap)
   text-align: center
-  padding-left: 15px
-  padding-right: 15px
+  // padding-left: 15px
+  // padding-right: 15px
   // +coverdiv
   width: 100%
   min-height: 100vh
-  z-index: 1
-  +sm
-    padding-top: 5%
-    padding-bottom: 5%
+  overflow: hidden
+
   &__title
     position: absolute
     width: 100%
-    top: 10%
+    top: 20%
     left: 0
     z-index: 3
     +sm
@@ -25,7 +23,7 @@
       &:nth-child(even)
         background-color: $black-dark
       &:nth-child(odd)
-        background-color: $black-darkest
+        background-color: $black-darkest  
 
 .feature
   width: 33.33333%
@@ -33,6 +31,7 @@
   padding-left: 15px
   padding-right: 15px
   text-align: left
+  +cover
   +rh(700)
     padding-top: 15%
   +sm
@@ -65,5 +64,4 @@
     color: $gray
   &__subttl
     margin-bottom: 15px
-  
   

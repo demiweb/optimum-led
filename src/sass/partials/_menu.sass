@@ -1,4 +1,5 @@
 .menu
+  $this: &
   visibility: hidden
   opacity: 0
   background-color: $white
@@ -8,15 +9,19 @@
   right: 0
   top: 0
   bottom: 0
-  // +tr(opacity .3s, visibility .3s)
+  +tr(opacity .3s, visibility .3s)
   &.is-active
     visibility: visible
     opacity: 1
+    #{$this}__inner
+      // transform: translate(0, 0)
   &__inner
     width: percentage(1720/1920)
     height: 100%
     padding: 40px
     background-color: $black
+    transform: translateX(-100%)
+    +tr(transform .3s)
     +md
       padding: 30px
     +sm

@@ -3,12 +3,14 @@ title: services
 page: services
 sections: [
   {
+    id: 'emotions',
     title: 'Світловий <strong>маркетинг</strong>',
     img: 'img-2.jpg',
     word: 'emotions',
     first: true
   },
   {
+    id: 'architecture',
     title: 'Архітектурне освітлення',
     img: 'img-3.jpg',
     word: 'architecture',
@@ -33,6 +35,7 @@ sections: [
     ]
   },
   {
+    id: 'smart',
     title: 'Smart <strong>освітлення</strong>',
     img: 'img-4.jpg',
     word: 'smart',
@@ -58,6 +61,7 @@ sections: [
     ]
   },
   {
+    id: 'sculpture',
     title: 'Світлова скульптура',
     img: 'img-5.jpg',
     word: 'sculpture',
@@ -81,6 +85,7 @@ sections: [
     ]
   },
   {
+    id: 'adaptive',
     title: 'Адаптивне освітлення',
     img: 'img-6.jpg',
     word: 'adaptive',
@@ -106,6 +111,7 @@ sections: [
     ]
   },
   {
+    id: 'hugge',
     last: true,
     title: 'Світлове хюгге',
     img: 'img-7.jpg',
@@ -133,7 +139,9 @@ sections: [
 {% block content %}
   {% include "partials/_header.html" %}
   
-  {% include "partials/_services.html" %}  
+  {% include "partials/_services.html" %}
+
+  {# {% include "partials/_footer.html" %} #}
 
   
 {% endblock %}

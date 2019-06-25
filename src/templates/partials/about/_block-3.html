@@ -1,6 +1,7 @@
 {%set
 features = [
   {
+    img: true,
     title: mixins.icon('value') + '<h4 class="h4">Підвищуємо вартість
 нерухомості до 25%</h4>',
     text: 'Продумана світлова композиція
@@ -33,15 +34,15 @@ features = [
 %}
 
 <!-- begin section -->
-<section class="section overflow-visible">
+<section class="section section--no-pad fullpage-section js-scrollbar">
   <!-- begin features -->
-  <div class="features">
+  <div class="features features--img js-lazy">
     <div class="features__title">
       <h2 class="title">Які завдання <strong>ми вирішуємо</strong></h2>
     </div>
     {% for i in features %}
     <!-- begin feature -->
-    <div class="feature">
+    <div class="feature{% if i.img %} js-lazy{% endif %}" {% if i.img %}data-background-image="img/about/img-4.jpg"{% endif %}>
       <div class="feature__inner">
         <div class="feature__title feature__title-has-icon">{{ i.title | safe }}</div>
 
@@ -51,9 +52,10 @@ features = [
     </div>
     <!-- end feature -->
     {% endfor %}
+    {# <img data-src="img/about/img-3.png" alt="" class="section__float-img js-lazy"> #}
   </div>
   <!-- end features -->
 
-  <img data-src="img/about/img-3.png" alt="" class="section__float-img js-lazy">
+  
 </section>
 <!-- end section -->

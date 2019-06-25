@@ -36,12 +36,12 @@
                 <!-- begin nav -->
                 <nav class="nav nav--dropdown">
                   <ul>
-                    <li><a href="#" class=" js-fullpage-anchore" data-index="1">Світловий маркетинг</a></li>
-                    <li><a href="#" class=" js-fullpage-anchore" data-index="2">Архітектурне освітлення</a></li>
-                    <li><a href="#" class=" js-fullpage-anchore" data-index="3">Smart освітлення</a></li>
-                    <li><a href="#" class=" js-fullpage-anchore" data-index="4">Адаптивне освітлення</a></li>
-                    <li><a href="#" class=" js-fullpage-anchore" data-index="5">Світлова скульптура</a></li>
-                    <li><a href="#" class=" js-fullpage-anchore" data-index="6">Світлове хюгге</a></li>
+                    <li><a href="#" class=" js-fullpage-anchor" data-index="1">Світловий маркетинг</a></li>
+                    <li><a href="#" class=" js-fullpage-anchor" data-index="2">Архітектурне освітлення</a></li>
+                    <li><a href="#" class=" js-fullpage-anchor" data-index="3">Smart освітлення</a></li>
+                    <li><a href="#" class=" js-fullpage-anchor" data-index="4">Адаптивне освітлення</a></li>
+                    <li><a href="#" class=" js-fullpage-anchor" data-index="5">Світлова скульптура</a></li>
+                    <li><a href="#" class=" js-fullpage-anchor" data-index="6">Світлове хюгге</a></li>
                   </ul>
                 </nav>
                 <!-- end nav -->
@@ -93,7 +93,7 @@
       <!-- end menu -->
       <div class="fullpage js-fullpage" data-page="services">
         <!-- begin section -->
-        <section class="fullpage-section is-active section section--center js-lazy" data-background-image="img/services/img-1.jpg">
+        <section id="hero" class="fullpage-section is-active section section--center js-scrollbar">
           <div class="section__block">
             <div class="container">
               <div class="section__center">
@@ -102,15 +102,16 @@
             </div>
           </div>
           <div class="section__scroll-down">
-            <a href="#" class="scroll-down js-scroll-down">
+            <a href="#" class="scroll-down js-fullpage-anchor" data-index="1">
               <span class="scroll-down__title">Дізнатися більше</span>
               <span class="scroll-down__arrow"></span>
             </a>
           </div>
+          <div class="section-bg js-lazy" data-background-image="img/services/img-1.jpg"></div>
         </section>
         <!-- end section -->
         <!-- begin section -->
-        <section class="fullpage-section section js-lazy" data-background-image="img/services/img-2.jpg">
+        <section id="emotions" class="fullpage-section section section--has-nav js-scrollbar">
           <div class="section__block">
             <div class="container">
               <!-- begin section-block -->
@@ -138,11 +139,12 @@
               <!-- end section-block -->
             </div>
           </div>
-          <div class="section__word-bottom text-stroke">emotions</div>
+          <div class="section__word-bottom text-stroke flashIn">emotions</div>
+          <div class="section-bg js-lazy" data-background-image="img/services/img-2.jpg"></div>
         </section>
         <!-- end section -->
         <!-- begin section -->
-        <section class="fullpage-section section js-lazy" data-background-image="img/services/img-3.jpg">
+        <section id="architecture" class="fullpage-section section section--has-nav js-scrollbar">
           <div class="section__block">
             <div class="container">
               <!-- begin section-block -->
@@ -168,11 +170,12 @@
               <!-- end section-block -->
             </div>
           </div>
-          <div class="section__word-bottom text-stroke">architecture</div>
+          <div class="section__word-bottom text-stroke flashIn">architecture</div>
+          <div class="section-bg js-lazy" data-background-image="img/services/img-3.jpg"></div>
         </section>
         <!-- end section -->
         <!-- begin section -->
-        <section class="fullpage-section section js-lazy" data-background-image="img/services/img-4.jpg">
+        <section id="smart" class="fullpage-section section section--has-nav js-scrollbar">
           <div class="section__block">
             <div class="container">
               <!-- begin section-block -->
@@ -198,11 +201,12 @@
               <!-- end section-block -->
             </div>
           </div>
-          <div class="section__word-bottom text-stroke">smart</div>
+          <div class="section__word-bottom text-stroke flashIn">smart</div>
+          <div class="section-bg js-lazy" data-background-image="img/services/img-4.jpg"></div>
         </section>
         <!-- end section -->
         <!-- begin section -->
-        <section class="fullpage-section section js-lazy" data-background-image="img/services/img-5.jpg">
+        <section id="sculpture" class="fullpage-section section section--has-nav js-scrollbar">
           <div class="section__block">
             <div class="container">
               <!-- begin section-block -->
@@ -228,11 +232,12 @@
               <!-- end section-block -->
             </div>
           </div>
-          <div class="section__word-bottom text-stroke">sculpture</div>
+          <div class="section__word-bottom text-stroke flashIn">sculpture</div>
+          <div class="section-bg js-lazy" data-background-image="img/services/img-5.jpg"></div>
         </section>
         <!-- end section -->
         <!-- begin section -->
-        <section class="fullpage-section section js-lazy" data-background-image="img/services/img-6.jpg">
+        <section id="adaptive" class="fullpage-section section section--has-nav js-scrollbar">
           <div class="section__block">
             <div class="container">
               <!-- begin section-block -->
@@ -258,11 +263,12 @@
               <!-- end section-block -->
             </div>
           </div>
-          <div class="section__word-bottom text-stroke">adaptive</div>
+          <div class="section__word-bottom text-stroke flashIn">adaptive</div>
+          <div class="section-bg js-lazy" data-background-image="img/services/img-6.jpg"></div>
         </section>
         <!-- end section -->
         <!-- begin section -->
-        <section class="fullpage-section section js-lazy" data-background-image="img/services/img-7.jpg">
+        <section id="hugge" class="fullpage-section section section--has-nav js-scrollbar">
           <div class="section__block">
             <div class="container">
               <!-- begin section-block -->
@@ -288,7 +294,8 @@
               <!-- end section-block -->
             </div>
           </div>
-          <div class="section__word-bottom text-stroke">hugge</div>
+          <div class="section__word-bottom text-stroke flashIn">hugge</div>
+          <div class="section-bg js-lazy" data-background-image="img/services/img-7.jpg"></div>
           <!-- begin footer -->
           <footer class="footer">
             <div class="container">
@@ -308,7 +315,7 @@
                 </div>
                 <div class="footer__copy">Copyright 2019. Все права защищены</div>
                 <div class="footer__btn">
-                  <a class="scroll-top" href="#">
+                  <a class="scroll-top js-fullpage-anchor" data-index="0" href="#">
                     <span class="scroll-top__title">Наверх</span>
                     <span class="scroll-top__arrow"></span>
                   </a>

@@ -2,9 +2,10 @@ import Animator from './Animator';
 import { ACTIVE, $WIN, $DOC } from '../../constants';
 import anime from 'animejs';
 import '../../lib/touchevents';
+// import PerfectScrollbar from 'perfect-scrollbar';
 
 export default class Paginator {
-  constructor(wrap, { next, prev, pagination, customPagging = true, allowWheel = false, pagingFromZero = true, zeroSlide = 1 }) {
+  constructor(wrap, { next, prev, pagination, customPagging = true, allowWheel = false, allowTouch = false, pagingFromZero = true, zeroSlide = 0 }) {
     this.$wrap = $(wrap);
     this.$sections = this.$wrap.children();
     this.$pagination = $(pagination);
@@ -15,42 +16,53 @@ export default class Paginator {
     this.$prev = $(prev);
     this.$next = $(next);
     this.allowWheel = allowWheel;
+    this.allowTouch = allowTouch;
     this.customPagging = customPagging;
     this.pagingFromZero = pagingFromZero;
     this.zeroSlide = zeroSlide;
-    this.anchor = 'js-fullpage-anchore';
+    this.anchor = 'js-fullpage-anchor';
   };
 
   init() {
     if (!this.$sections.length) return;
 
-    // const url = window.location.href;
-    // const id = url.substring(url.lastIndexOf('#') + 1);
+    this._createPagination();
 
-    if (this._initFirstSection) {
+    if (this.getIdFromUrl() && this.getIdFromUrl().length > 1) {
+      this._paginateOnLoad();
+    } else if (this._initFirstSection) {
       this._initFirstSection();
     };
-    // this._initFirstSection();
 
-    this._createPagination();
+    
     if (this.allowWheel) {
       this._paginateOnScroll();
     };    
     this._paginateOnClick();
-    this._paginateOnTouch();
+    if (this.allowTouch) {
+      this._paginateOnTouch();
+    };    
+  };
+
+  getIdFromUrl() {
+    const url = window.location.href;
+    const id = url.substring(url.lastIndexOf('#'));
+    if (id.indexOf('http') === -1) {
+      return id;
+    };    
   };
 
   paginate(e) {
     if (!this.allowScroll) return;
     let direction;
-    
-    if (e.type === 'wheel') {
+
+    if (e && e.type === 'wheel') {
       e = e.originalEvent;
       direction = e.deltaY > 0 ? 1 : -1;
       this.nextSection = this.activeSection + direction;
     };
 
-    if (e.type === 'click') {
+    if (e && e.type === 'click') {
       e.preventDefault();
 
       if ($(e.currentTarget).is(this.$prev)) {
@@ -62,13 +74,42 @@ export default class Paginator {
         if (typeof index !== 'number') return;
         this.nextSection = index;
       };
+    };
+    if (e && e.type === 'swd') {
+      const $container = $(e.target).closest('.fullpage-section');
+      const $thumbY = $container.find('.ps__thumb-y');
 
+      if ($thumbY && $thumbY.length > 0) {
+        const top = parseInt($thumbY.css('top'));
+        if (top === 0 ) {
+          this.nextSection = this.activeSection - 1;
+        };        
+      } else {
+        this.nextSection = this.activeSection - 1;
+      };
     };
-    if (e.type === 'swd') {
-      this.nextSection = this.activeSection - 1;
+    if (e && e.type === 'swu') {
+      const $container = $(e.target).closest('.fullpage-section');
+      const $thumbY = $container.find('.ps__thumb-y');
+
+      if ($thumbY && $thumbY.length > 0) {
+        const thumbTop = parseInt($thumbY.css('top'));
+        const thumbHeight = parseInt($thumbY.css('height'));
+        const bottom = $container.innerHeight() - thumbTop - thumbHeight;
+
+        if (bottom === 0 || thumbTop === 0) {
+          this.nextSection = this.activeSection + 1;
+        };
+      } else {
+        this.nextSection = this.activeSection + 1;
+      };
     };
-    if (e.type === 'swu') {
-      this.nextSection = this.activeSection + 1;
+
+    if (typeof e === 'string') {
+      const id = e;
+      const index = this.$wrap.find(id).index();
+
+      this.nextSection = index;
     };
 
     if (this.nextSection >= this.$sections.length || this.nextSection < this.zeroSlide || this.nextSection === this.activeSection) return;
@@ -79,7 +120,6 @@ export default class Paginator {
       this.$buttons.removeClass(ACTIVE);
       $(this.$buttons[this.nextSection]).addClass(ACTIVE);
     };
-    
 
     this.animator = new Animator({
       direction,
@@ -103,6 +143,13 @@ export default class Paginator {
     this.animator.animate();
   
     this.activeSection = this.nextSection;
+
+    if (this.pagingFromZero && this.activeSection > 0) {
+      this.$pagination.addClass(ACTIVE);
+    } else {
+      this.$pagination.removeClass(ACTIVE);
+    };
+
     setTimeout(() => {
       this.allowScroll = true;
     }, this.delay);
@@ -145,7 +192,6 @@ export default class Paginator {
 
   _paginateOnClick() {
     if (this.anchor) {
-      // this.$anchors.on('click', this.paginate.bind(this));
       $DOC.on('click', `.${this.anchor}`, this.paginate.bind(this));
     };
     if (this.$buttons && this.$buttons.length > 0) {
@@ -164,5 +210,9 @@ export default class Paginator {
     events.forEach((event) => {
       window.addEventListener(event, this.paginate.bind(this));
     });
-  };  
+  };
+
+  _paginateOnLoad() {
+    this.paginate(this.getIdFromUrl());
+  };
 };

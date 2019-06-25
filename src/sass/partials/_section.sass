@@ -1,7 +1,17 @@
+.section-bg
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  z-index: -1
+  +cover
+  opacity: 0
+
 .section
   +cover
-  +flex(flex-start, center)
-  min-height: 100vh
+  +flex(center, normal, column)
+  height: 100vh
   overflow: hidden
   position: relative
   background-color: $black-darkest
@@ -10,12 +20,33 @@
     padding: $header-height-md 0
   +sm
     padding: $header-height-sm 0
+
+  // if fixed footer
+  // padding: $header-height 0 $footer-height
+  // +lg
+  //   padding: $header-height 0 $footer-height-lg
+  // +md
+  //   padding: $header-height-md 0 $footer-height-md
+  // +sm
+  //   padding: $header-height-sm 0
+  // +xs
+  //   padding: $header-height-sm 0 $footer-height-xs
+
+  &:last-child
+    padding: $header-height-sm 0 0
   &:nth-child(even)
     background-color: $black-darken
   &:nth-child(odd)
     background-color: $black-light
+  &.ps--active-y
+    justify-content: flex-start
   &__block
     width: 100%
+    flex-grow: 1
+    +flex(center, normal, column)
+    opacity: 0
+    .container
+      width: 100%
   &__word
     position: absolute
     white-space: nowrap
@@ -25,7 +56,7 @@
     @extend .section__word
     left: 30%
     top: auto
-    bottom: 5%
+    bottom: 10%
   &__scroll-down
     position: absolute
     bottom: 35px
@@ -60,6 +91,18 @@
   &--center
     text-align: center
     justify-content: center
+  &--no-pad
+    padding: 0 !important
+  &--has-nav
+    .section__block
+      +r(1799)
+        padding-left: 150px
+      +md
+        padding-left: 100px
+      +sm
+        padding-left: 50px
+      +xs
+        padding-left: 0
 
 .section-block
   &__title

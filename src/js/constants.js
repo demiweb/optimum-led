@@ -37,5 +37,5 @@ export const {
   HASTEXT: 'has-text',
   VALID: 'is-valid',
   FIXED: 'is-fixed',
-  FLASH_DURATION: 1000
+  FLASH_DURATION: 1200
 };
