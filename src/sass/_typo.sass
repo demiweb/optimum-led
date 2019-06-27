@@ -22,10 +22,11 @@ h1, h2, h3, h4, h5, h6
     font-size: 50px
   +rh(667)
     font-size: 42px
-  &.is-animate
+  &.is-animate:not(.title--no-anim)
     +mdmin
       strong
         animation: shadow 1s 3
+
 
   &--img
     position: relative
