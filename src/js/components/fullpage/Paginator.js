@@ -98,6 +98,8 @@ export default class Paginator {
         direction = -1;
         this.nextSection = this.activeSection - 1;
       };
+
+      this.$sections[this.nextSection].scrollTop = 0;
     };
     if (e && e.type === 'swu') {
       const $container = $(e.target).closest('.fullpage-section');
@@ -116,6 +118,10 @@ export default class Paginator {
         direction = 1;
         this.nextSection = this.activeSection + 1;
       };
+
+      // $container[0].scrollTop = 0;
+
+      // console.log($container.hide());
     };
 
     if (typeof e === 'string') {
