@@ -1,11 +1,11 @@
 <div class="fullpage js-fullpage" data-page="services">
 
   <!-- begin section -->
-  <section id="hero" class="fullpage-section is-active section section--center js-scrollbar">
+  <section id="hero" class="fullpage-section is-active section section--center js-scrollbar-mob">
     <div class="section__block">
       <div class="container">
         <div class="section__center">
-          <h1 class="title"><strong>Ми викликаємо емоції</strong> за допомогою світла</h1>
+          <h1 class="title js-title"><strong>Ми викликаємо емоції</strong> за допомогою світла</h1>
         </div>
       </div>
     </div>
@@ -14,18 +14,20 @@
       {{ mixins.scrollDown() }}
     </div>
 
-    <div class="section-bg js-lazy" data-background-image="img/services/img-1.jpg"></div>
+    <div class="section-bg js-lazy" data-background-image="img/services/img-1.jpg">
+      <video data-src="video/video-bg.mp4" autoplay="" muted="" playsinline="" poster="" loop="" class="js-lazy"></video>
+    </div>
   </section>
   <!-- end section -->
 
   {% for i in sections %}
   <!-- begin section -->
-  <section id="{{ i.id }}" class="fullpage-section section{% if i.mod %} {{ i.mod }}{% endif %} section--has-nav js-scrollbar">
+  <section id="{{ i.id }}" class="fullpage-section section{% if i.mod %} {{ i.mod }}{% endif %} section--has-nav js-scrollbar-mob">
     <div class="section__block">
       <div class="container">
         <!-- begin section-block -->
         <div class="section-block">
-          <div class="section-block__title"><h2 class="title">{{ i.title | safe }}</h2></div>
+          <div class="section-block__title"><h2 class="title js-title">{{ i.title | safe }}</h2></div>
 
           {% if i.first %}
           <div class="section-block__descr">

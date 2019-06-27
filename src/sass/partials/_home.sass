@@ -17,6 +17,8 @@
       width: 100%
     +sm
       height: $controls-height-mob
+    +rh(667)
+      height: $controls-height-vert
   &__btns
     width: 180px
     +sm
@@ -56,6 +58,8 @@
   padding-bottom: $controls-height
   +sm
     padding-bottom: $controls-height-mob
+  +rh(667)
+      padding-bottom: $controls-height-vert
   .container
     height: 100%
     +flex(center, normal, column)
@@ -65,12 +69,16 @@
       margin-bottom: 10px
   &__subttl
     margin-bottom: 120px
+    +lg
+      margin-bottom: 90px
     +md
-      margin-bottom: 100px
-    +sm
       margin-bottom: 80px
+    +sm
+      margin-bottom: 60px
     +xs
-      margin-bottom: 50px
+      margin-bottom: 30px
+    +rh(667)
+      margin-bottom: 20px
 
   &__img
     position: absolute

@@ -15,8 +15,16 @@ h1, h2, h3, h4, h5, h6
   color: $white
   line-height: .9
   +css-lock(42, 74, 320, 1199, font-size)
+  position: relative  
   strong
-    // display: block
+    // display: block    
+  +rh(900)
+    font-size: 50px
+  +rh(667)
+    font-size: 42px
+  &.is-animate
+    strong
+      animation: shadow 1s infinite
 
   &--img
     position: relative
@@ -34,6 +42,8 @@ h1, h2, h3, h4, h5, h6
   font-size: $fz-md
   line-height: 1.2
   +css-lock(16, 21, 320, 1199, font-size)
+  +rh(667)
+    font-size: 16px
   &--lg
     +css-lock(18, 30, 320, 1199, font-size)
     color: $gray-lightest
@@ -55,6 +65,8 @@ h1, h2, h3, h4, h5, h6
     display: block
   +sm
     font-size: $fz-md
+  +rh(667)
+    font-size: $fz
 
 .h5, h5
 
@@ -65,3 +77,5 @@ h1, h2, h3, h4, h5, h6
   color: $gray-light
   +sm
       font-size: $fz
+  +rh(667)
+    font-size: $fz

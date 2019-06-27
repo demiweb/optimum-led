@@ -112,17 +112,26 @@ input, textarea
 
 .text-stroke
   // font-size: 250px
-  line-height: .9
+  line-height: .6
   text-transform: uppercase
   +bold
   -webkit-text-stroke: 1px $gray-dark
   color: transparent
   +css-lock(100, 250, 320, 1199, font-size)
+  +sm
+    display: none
 
 .purple-text
   color: $purple
   +bold
   text-shadow: 0 0 50px rgba($purple, 1), 3px 15px 2px rgba($black-darkest, .4), rgba($white, .8) 0px -1px 0px
+  position: relative
+  &::before
+    content: attr(data-text)
+    text-shadow: 0 0 50px rgba($white, 1), 3px 15px 2px rgba($black-darkest, .4), rgba($white, .8) 0px -1px 0px
+    position: absolute
+    +vcenter
+    z-index: 0
 
 .scroll-down
   $this: &
@@ -196,20 +205,48 @@ input, textarea
 // ========================= animations ==============================
 
 .glowing
-  animation: glow 2s infinite
+  // animation: glow 2s infinite
+  &.is-animate
+    &::before
+      animation: flashIn 2.5s
+
 
 .flashIn
   animation-duration: 1.2s
   &.is-animate
     animation-name: flashIn
 
-@keyframes glow
+@keyframes shadow
   0%
-    opacity: .5
-  50%
-    opacity: 1
+    text-shadow: #f21f4d 0px 0px 5px, #fd0000 0px 0px 10px, #FFF 0px 0px 15px, #CE0000 0px 0px 20px, #CE0000 0px 0px 30px, #CE0000 0px 0px 40px, #FF2D95 0px 0px 50px, #CE0000 0px 0px 75px, 2px 2px 2px rgba(206,0,0,0.63)
   100%
-    opacity: .5
+    text-shadow: none
+
+@keyframes flick 
+  0% 
+    transform: translateX(0)
+  
+  5% 
+    transform: translateX(5px)
+  
+  6% 
+    transform: translateX(0)
+  
+  7% 
+    transform: translate(0, 5px)
+  
+  8% 
+    transform: none
+  
+  14% 
+    transform: translateX(-5px)
+  
+  15% 
+    transform: none
+  
+  100% 
+    transform: none
+
 
 @keyframes fadeIn
   0%
@@ -423,4 +460,4 @@ input, textarea
   99%
     opacity: 1
   100%
-    opacity: 1
+    opacity: 0

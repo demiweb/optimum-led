@@ -7,6 +7,10 @@
   z-index: -1
   +cover
   opacity: 0
+  overflow: hidden
+  video
+    +coverdiv
+    object-fit: cover
 
 .section
   +cover
@@ -20,25 +24,16 @@
     padding: $header-height-md 0
   +sm
     padding: $header-height-sm 0
-
-  // if fixed footer
-  // padding: $header-height 0 $footer-height
-  // +lg
-  //   padding: $header-height 0 $footer-height-lg
-  // +md
-  //   padding: $header-height-md 0 $footer-height-md
-  // +sm
-  //   padding: $header-height-sm 0
-  // +xs
-  //   padding: $header-height-sm 0 $footer-height-xs
-
-  &:last-child
-    padding: $header-height-sm 0 0
+  +rh(900)
+    padding: $header-height-sm-vert 0
+  
   &:nth-child(even)
     background-color: $black-darken
   &:nth-child(odd)
     background-color: $black-light
   &.ps--active-y
+    justify-content: flex-start
+  &.is-overflowing
     justify-content: flex-start
   &__block
     width: 100%
@@ -57,6 +52,9 @@
     left: 30%
     top: auto
     bottom: 10%
+    +xl
+      // bottom: $header-height-sm-vert
+      bottom: -10%
   &__scroll-down
     position: absolute
     bottom: 35px
@@ -77,8 +75,8 @@
       width: 60%
       margin-left: 40%
     +sm
-      width: 70%
-      margin-left: 30%
+      width: 90%
+      margin-left: 10%
     +xs
       width: auto
       margin-left: 0
@@ -93,6 +91,8 @@
     justify-content: center
   &--no-pad
     padding: 0 !important
+    +sm
+      padding: $header-height-sm 0 !important
   &--has-nav
     .section__block
       +r(1799)
@@ -103,16 +103,35 @@
         padding-left: 50px
       +xs
         padding-left: 0
+  &--single
+    .section-bg
+      z-index: 0
+      // opacity: 1
+    .section__block
+      z-index: 1
+      position: relative
+      // opacity: 1
+    .section__word
+      z-index: 1
+      left: 30%
+      top: auto
+      bottom: 5%
 
 .section-block
   &__title
     margin-bottom: 60px
     +lg
-      margin-bottom: 50px
-    +md
       margin-bottom: 40px
-    +sm
+    +md
       margin-bottom: 30px
+    +sm
+      margin-bottom: 20px !important
+    +xs
+      margin-bottom: 10px !important
+    +rh(900)
+      margin-bottom: 30px
+    +rh(667)
+      margin-bottom: 10px
   &__descr-text
     position: relative
     border-left: 1px solid currentColor
@@ -125,6 +144,10 @@
       margin-bottom: 30px
     +sm
       margin-bottom: 20px
+    +rh(900)
+      margin-bottom: 20px
+    +rh(667)
+      margin-bottom: 0
   &__descr-list
     margin-bottom: 50px
     +lg
@@ -133,6 +156,10 @@
       margin-bottom: 30px
     +sm
       margin-bottom: 20px
+    +rh(900)
+      margin-bottom: 25px
+    +rh(667)
+      margin-bottom: 0
   &__blocks
     +flex(flex-start, normal, row, wrap)
     .block
@@ -144,13 +171,16 @@
   li
     position: relative
     padding-left: 20px
-    margin-bottom: 35px
-    +lg
-      margin-bottom: 25px
-    +md
-      margin-bottom: 15px
-    +sm
-      margin-bottom: 10px
+    +notlast
+      margin-bottom: 35px
+      +lg
+        margin-bottom: 25px
+      +md
+        margin-bottom: 15px
+      +sm
+        margin-bottom: 10px
+      +rh(667)
+        margin-bottom: 5px
   &__icon
     display: inline-block
     border: 1px solid $accent

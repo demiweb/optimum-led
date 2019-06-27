@@ -1,6 +1,6 @@
 import Paginator from '../fullpage/Paginator';
 import anime from 'animejs';
-import { ACTIVE, ANIMATE, FLASH_DURATION } from '../../constants';
+import { ACTIVE, ANIMATE, FLASH_DURATION, SECTION_BLOCK, FLASH_IN, SECTION_BG, TITLE, HIDDEN } from '../../constants';
 
 export default function setServicesPage(page) {
   const wrap = page.parentNode;
@@ -16,10 +16,17 @@ export default function setServicesPage(page) {
     const section = paginator.$sections[0];
     const $elseSections = paginator.$sections.not(section);
 
-    const block = section.querySelector('.section__block');
-    const img = section.querySelector('.section-bg');
+    const block = section.querySelector(`.${SECTION_BLOCK}`);
+    const img = section.querySelector((`.${SECTION_BG}`));
+    const title = section.querySelector(`.${TITLE}`);
 
     section.classList.add(ACTIVE);
+
+    if (title) {
+      setTimeout(() => {
+        title.classList.add(ANIMATE);
+      }, FLASH_DURATION);
+    };
 
     paginator.tl = anime.timeline({ easing: 'linear' });
 
@@ -42,23 +49,49 @@ export default function setServicesPage(page) {
   };
   paginator.getElements = (section) => {
     const elements = {
-      word: section.querySelector('.flashIn'),
-      block: section.querySelector('.section__block'),
-      img: section.querySelector('.section-bg')
+      word: section.querySelector((`.${FLASH_IN}`)),
+      block: section.querySelector(`.${SECTION_BLOCK}`),
+      img: section.querySelector((`.${SECTION_BG}`)),
+      title: section.querySelector(`.${TITLE}`),
+      nav: document.querySelector('.header .nav')
     };
     return elements;
   };
   paginator.enterAnimations = (self) => {
-    if (self.getElements(self.target).word) {
-      self.getElements(self.target).word.classList.add(ANIMATE);
+    if (paginator.nextSection > 0) {
+      if (paginator.getElements(self.current).nav) {
+        paginator.getElements(self.current).nav.classList.add(HIDDEN);
+      };      
+    } else {
+      if (paginator.getElements(self.current).nav) {
+        paginator.getElements(self.current).nav.classList.remove(HIDDEN);
+      }; 
+    };
+
+    if (self.getElements(self.target).title) {
+      setTimeout(() => {
+        self.getElements(self.target).title.classList.add(ANIMATE);
+      }, FLASH_DURATION);
+    };
+
+    
+    if (paginator.animator.direction === 1) {
+
+      self.target.style.opacity = 1;
+      self.target.style.zIndex = 1;
+
+      if (self.getElements(self.target).word) {
+        self.getElements(self.target).word.classList.add(ANIMATE);
+      };
 
       self.tl
         .add({
           targets: self.target,
-          opacity: [0, 1],
+          // opacity: [0, 1],
+          translateY: ['100%', '0%'],
           zIndex: [0, 1],
           duration: 600
-        })
+        }, 1)
         .add({
           targets: self.getElements(self.target).block,
           opacity: [0, 1],
@@ -71,13 +104,23 @@ export default function setServicesPage(page) {
           duration: 700
         });
     } else {
+      self.target.style.opacity = 1;
+      self.target.style.zIndex = 1;
+
+      console.log(self.getElements(self.target).word);
+
+      if (self.getElements(self.target).word) {
+        self.getElements(self.target).word.classList.add(ANIMATE);
+      };
+
       self.tl
         .add({
           targets: self.target,
-          opacity: [0, 1],
+          // opacity: [0, 1],
+          translateY: ['-100%', '0%'],
           zIndex: [0, 1],
           duration: 600
-        })
+        }, 1)
         .add({
           targets: self.getElements(self.target).block,
           opacity: [0, 1],
@@ -89,16 +132,33 @@ export default function setServicesPage(page) {
           opacity: [0, 1],
           duration: 700
         });
-    };    
+    };   
   };
   paginator.exitAnimations = (self) => {
-    self.tl
-      .add({
-        targets: self.current,
-        opacity: [1, 0],
-        zIndex: [1, 0],
-        duration: 600
-      });
+    if (paginator.animator.direction === 1) {
+
+      self.tl
+        .add({
+          targets: self.current,
+          // opacity: [1, 0],
+          translateY: ['0%', '-100%'],
+          zIndex: [1, 0],
+          duration: 600
+        });
+    } else {
+      self.tl
+        .add({
+          targets: self.current,
+          // opacity: [1, 0],
+          translateY: ['0%', '100%'],
+          zIndex: [1, 0],
+          duration: 600
+        });
+    };
+
+    
+
+
     self.tl.finished.then(() => {
       if (self.getElements(self.current).word) {
         self.getElements(self.current).word.classList.remove(ANIMATE);

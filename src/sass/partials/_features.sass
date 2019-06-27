@@ -1,49 +1,74 @@
 .features
-  +flex(flex-start, normal, row, wrap)
+  +flex(center, normal, column)
   text-align: center
   // padding-left: 15px
   // padding-right: 15px
   // +coverdiv
   width: 100%
-  min-height: 100vh
-  overflow: hidden
+  // min-height: 100vh
+  // overflow: hidden
+  position: relative
+  z-index: 2
 
   &__title
-    position: absolute
-    width: 100%
-    top: 20%
-    left: 0
-    z-index: 3
+    margin-bottom: 150px
+    +lg
+      margin-bottom: 100px
+    +md
+      margin-bottom: 50px
     +sm
-      position: static
-      margin-bottom: 25px
+      margin-bottom: 20px !important
+    +xs
+      margin-bottom: 10px !important
+    +rh(900)
+      margin-bottom: 50px
+  &__features
+    +flex(flex-start, normal, row, wrap)
 
-  &--plain
-    .feature
+
+
+.features-bg
+  $this: &
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  +flex()
+  z-index: 0
+  &__col
+    height: 100%
+    width: 33.33333%
+    +cover
+    &:nth-child(odd)
+      background-color: $black-dark
+    &:nth-child(even)
+      background-color: $black-darkest
+
+  &--reverse
+    #{$this}__col
       &:nth-child(even)
         background-color: $black-dark
       &:nth-child(odd)
-        background-color: $black-darkest  
+        background-color: $black-darkest
 
 .feature
   width: 33.33333%
-  padding-top: 30%
+  // padding-top: 30%
   padding-left: 15px
   padding-right: 15px
   text-align: left
   +cover
-  +rh(700)
-    padding-top: 15%
-  +sm
+  +xs
     width: 100%
-    padding-top: 20px
-    padding-bottom: 20px
-    padding-left: 0
-    padding-right: 0
-  &:nth-child(odd)
-    background-color: $black-dark
-  &:nth-child(even)
-    background-color: $black-darkest
+    padding-top: 5px
+    padding-bottom: 5px
+    // padding-left: 0
+    // padding-right: 0
+  // &:nth-child(odd)
+  //   background-color: $black-dark
+  // &:nth-child(even)
+  //   background-color: $black-darkest
   &__inner
     max-width: 355px
     margin-left: auto
@@ -52,6 +77,8 @@
     color: $white
     position: relative    
     margin-bottom: 15px
+    +xs
+      margin-bottom: 10px
   &__title-has-icon
     padding-left: 60px
     .icon
@@ -60,8 +87,30 @@
       position: absolute
       top: 0
       left: 0
+      +sm
+        font-size: 40px
+      +xs
+        font-size: 30px
+    +sm
+      padding-left: 50px
+    +xs
+      padding-left: 40px
   &__text
     color: $gray
   &__subttl
     margin-bottom: 15px
-  
+
+.features-img
+  position: absolute
+  right: 0
+  z-index: 1
+  opacity: 1
+  top: auto
+  left: auto
+  max-height: 100%
+
+  &--bottom
+    bottom: 0
+  &--top
+    top: 0
+    bottom: auto !important

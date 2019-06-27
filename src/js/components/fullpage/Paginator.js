@@ -21,6 +21,7 @@ export default class Paginator {
     this.pagingFromZero = pagingFromZero;
     this.zeroSlide = zeroSlide;
     this.anchor = 'js-fullpage-anchor';
+    this.hasTriggered = false;
   };
 
   init() {
@@ -66,13 +67,21 @@ export default class Paginator {
       e.preventDefault();
 
       if ($(e.currentTarget).is(this.$prev)) {
+        direction = -1;
         this.nextSection = this.activeSection - 1;
       } else if ($(e.currentTarget).is(this.$next)) {
+        direction = 1;
         this.nextSection = this.activeSection + 1;
       } else {
         const index = parseInt(e.currentTarget.getAttribute('data-index'));
         if (typeof index !== 'number') return;
+
         this.nextSection = index;
+        if (this.nextSection > this.activeSection) {
+          direction = 1;
+        } else {
+          direction = -1;
+        };
       };
     };
     if (e && e.type === 'swd') {
@@ -82,9 +91,11 @@ export default class Paginator {
       if ($thumbY && $thumbY.length > 0) {
         const top = parseInt($thumbY.css('top'));
         if (top === 0 ) {
+          direction = -1;
           this.nextSection = this.activeSection - 1;
         };        
       } else {
+        direction = -1;
         this.nextSection = this.activeSection - 1;
       };
     };
@@ -98,9 +109,11 @@ export default class Paginator {
         const bottom = $container.innerHeight() - thumbTop - thumbHeight;
 
         if (bottom === 0 || thumbTop === 0) {
+          direction = 1;
           this.nextSection = this.activeSection + 1;
         };
       } else {
+        direction = 1;
         this.nextSection = this.activeSection + 1;
       };
     };
@@ -140,8 +153,8 @@ export default class Paginator {
       this.animator.exitAnimations = this.exitAnimations;
     };
   
-    this.animator.animate();
-  
+    this.animator.animate();    
+
     this.activeSection = this.nextSection;
 
     if (this.pagingFromZero && this.activeSection > 0) {

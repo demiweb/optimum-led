@@ -17,6 +17,7 @@ var config = {
         sassGen      : 'src/sass/generated',
         js           : 'src/js',
         img          : 'src/img',
+        video          : 'src/video',
         svg          : 'src/img/svg',
         icons        : 'src/icons',
         iconsHTML    : 'src/templates/icons',
@@ -30,6 +31,7 @@ var config = {
         css  : destPath + '/css',
         js   : destPath + '/js',
         img  : destPath + '/img',
+        video  : destPath + '/video',
         fonts: destPath + '/fonts',
         lib  : destPath + '/lib',
         data : destPath + '/data'

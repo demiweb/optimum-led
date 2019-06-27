@@ -4,3 +4,4 @@ PageList:
 - file: home.html
 - file: about.html
 - file: services.html
+- file: contacts.html

@@ -2,16 +2,19 @@
   color: $white
   &__title
     margin-bottom: 150px
+    +rh(900)
+      margin-bottom: 40px
     +xl
       margin-bottom: 120px
     +lg
       margin-bottom: 100px
     +md
-      margin-bottom: 80px
+      margin-bottom: 60px
     +sm
-      margin-bottom: 50px
+      margin-bottom: 30px !important
     +xs
-      margin-bottom: 30px
+      margin-bottom: 10px !important
+    
   &__content
     +flex()
     +sm
@@ -35,6 +38,8 @@
     padding-left: 35px
     +md
       padding-left: 25px
+    +rh(900)
+      margin-bottom: 10px
   &__title-icon
     position: absolute
     left: 0
@@ -75,6 +80,10 @@
       margin-bottom: 35px
     +sm
         margin-bottom: 25px
+    +xs
+      margin-bottom: 10px
+    +rh(667)
+      margin-bottom: 15px
 
 .descr-sm-item
   width: 50%
@@ -86,6 +95,8 @@
     margin-bottom: 15px
   +xs
     width: 100%
+  +rh(667)
+    margin-bottom: 10px
   &__title
     color: $white
     margin-bottom: 25px
@@ -93,4 +104,6 @@
       margin-bottom: 15px
     +sm
       margin-bottom: 10px
+    +rh(667)
+      margin-bottom: 5px
 

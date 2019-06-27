@@ -1,11 +1,13 @@
 import PerfectScrollbar from 'perfect-scrollbar';
 
 export default function setScrollbar() {
-  const containers = [].slice.call(document.querySelectorAll('.js-scrollbar'));
+  const containers = [].slice.call(document.querySelectorAll('.js-scrollbar-mob'));
 
-  containers.forEach(container => {
-    const ps = new PerfectScrollbar(container, {
-      suppressScrollX: true
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    containers.forEach(container => {
+      const ps = new PerfectScrollbar(container, {
+        suppressScrollX: true
+      });
     });
-  });
+  };
 };

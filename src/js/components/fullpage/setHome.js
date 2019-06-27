@@ -1,6 +1,6 @@
 import Paginator from '../fullpage/Paginator';
 import anime from 'animejs';
-import { ACTIVE, ANIMATE, FLASH_DURATION } from '../../constants';
+import { ACTIVE, ANIMATE, FLASH_DURATION, FLASH_IN, TITLE } from '../../constants';
 
 export default function setHome(page) {
   const wrap = page.parentNode;
@@ -19,10 +19,17 @@ export default function setHome(page) {
 
     const block = section.querySelector('.home-page__block');
     const img = section.querySelector('.home-page__img');
-    const word = section.querySelector('.flashIn');
+    const word = section.querySelector(`.${FLASH_IN}`);
+    const title = section.querySelector(`.${TITLE}`);
 
     section.classList.add(ACTIVE);
     word.classList.add(ANIMATE);
+
+    if (title) {
+      setTimeout(() => {
+        title.classList.add(ANIMATE);
+      }, FLASH_DURATION);
+    };    
 
     paginator.tl = anime.timeline({ easing: 'linear' });
 
@@ -46,6 +53,12 @@ export default function setHome(page) {
   };
   paginator.enterAnimations = (self) => {
     self.getElements(self.target).word.classList.add(ANIMATE);
+    if (self.getElements(self.target).title) {
+      setTimeout(() => {
+        self.getElements(self.target).title.classList.add(ANIMATE);
+      }, FLASH_DURATION);
+    };
+    
     self.tl
       .add({
         targets: self.target,
@@ -79,9 +92,10 @@ export default function setHome(page) {
   };
   paginator.getElements = (section) => {
     const elements = {
-      word: section.querySelector('.flashIn'),
+      word: section.querySelector((`.${FLASH_IN}`)),
       block: section.querySelector('.home-page__block'),
-      img: section.querySelector('.home-page__img')
+      img: section.querySelector('.home-page__img'),
+      title: section.querySelector(`.${TITLE}`)
     };
     return elements;
   };

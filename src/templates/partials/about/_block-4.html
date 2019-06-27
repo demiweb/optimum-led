@@ -30,26 +30,37 @@ features = [
 %}
 
 <!-- begin section -->
-<section class="section section--no-pad fullpage-section js-scrollbar">
+<section class="section section--no-pad fullpage-section js-scrollbar-mob">
   <!-- begin features -->
-  <div class="features features--plain">
+  <div class="features">
     <div class="features__title">
-      <h2 class="title">Розробка <strong>концепції освітлення</strong></h2>
+      <h2 class="title js-title">Розробка <strong>концепції освітлення</strong></h2>
     </div>
-    {% for i in features %}
-    <!-- begin feature -->
-    <div class="feature">
-      <div class="feature__inner">
-        <div class="feature__title"><h4 class="h4">{{ i.title | safe }}</h4></div>
 
-        <div class="feature__subttl text">{{ i.subttl | safe }}</div>
+    <div class="features__features">
+      {% for i in features %}
+      <!-- begin feature -->
+      <div class="feature">
+        <div class="feature__inner">
+          <div class="feature__title"><h4 class="h4">{{ i.title | safe }}</h4></div>
 
-        <div class="feature__text text">{{ i.text | safe }}</div>
+          <div class="feature__subttl text">{{ i.subttl | safe }}</div>
+
+          <div class="feature__text text">{{ i.text | safe }}</div>
+        </div>
       </div>
+      <!-- end feature -->
+      {% endfor %}
     </div>
-    <!-- end feature -->
-    {% endfor %}
   </div>
   <!-- end features -->
+
+  <img data-src="img/about/img-4.png" alt="" class="js-lazy section-bg features-img features-img--top">
+
+  <div class="features-bg section-bg features-bg--reverse">
+    <div class="features-bg__col"></div>
+    <div class="features-bg__col"></div>
+    <div class="features-bg__col"></div>
+  </div>
 </section>
 <!-- end section -->
