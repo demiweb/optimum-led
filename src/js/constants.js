@@ -21,7 +21,8 @@ export const {
   SECTION_BLOCK,
   FLASH_IN,
   SECTION_BG,
-  TITLE
+  TITLE,
+  LOADING
 } = {
   $DOC: $(document),
   $WIN: $(window),
@@ -29,6 +30,7 @@ export const {
   $HTML: $('html'),
   $BODY: $('body'),
 
+  LOADING: 'is-loading',
   ACTIVE: 'is-active',
   OPEN: 'is-open',
   SHOW: 'is-show',

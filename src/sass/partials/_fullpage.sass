@@ -23,16 +23,21 @@
 
 .fullpage-section
   opacity: 0
+  display: none
   z-index: 0
   +coverdiv
   &.section
     position: absolute
+    display: none
     &:last-child
       padding-bottom: 0
   &.is-active
     z-index: 1
     opacity: 1
     transform: translateY(0%)
+    display: flex
+  &.is-loading
+    display: flex
   .ps__rail-y
     z-index: 5
 

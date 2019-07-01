@@ -1,5 +1,5 @@
 import anime  from 'animejs';
-import { ACTIVE, ANIMATE, FLASH_DURATION } from '../../constants';
+import { ACTIVE, ANIMATE, FLASH_DURATION, LOADING } from '../../constants';
 
 export default class Animator {
   constructor({ direction, $sections, from, to }) {
@@ -18,14 +18,18 @@ export default class Animator {
   animate() {
     this.tl = anime.timeline({
       easing: 'linear'
-    });
+    });    
 
-    this.tl.finished.then(() => {
-      $(this.current).removeClass(ACTIVE);
-      $(this.target).addClass(ACTIVE);
-    });
+    $(this.target).addClass(LOADING);
 
     this.exitAnimations(this);
     this.enterAnimations(this);
+
+    this.tl.finished.then(() => {
+      $(this.current).removeClass(ACTIVE);      
+      $(this.target).addClass(ACTIVE);
+      $(this.current).removeClass(LOADING);
+      $(this.target).removeClass(LOADING);
+    });
   };
 };

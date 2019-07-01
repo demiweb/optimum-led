@@ -77,7 +77,9 @@
     <div class="section__word-bottom text-stroke flashIn">{{ i.word }}</div>
 
     {% if i.img %}
-    <div class="section-bg section-bg--mob-left js-lazy" data-background-image="img/services/{{ i.img }}"></div>
+    <div class="section-bg section-bg--mob-left js-lazy" data-background-image="img/services/{{ i.img }}">
+      <video data-src="video/{{ i.video }}.mp4" class="js-lazy" autoplay="" muted="" playsinline="" ></video>
+    </div>
     {% endif %}
 
     {% if i.last %}
