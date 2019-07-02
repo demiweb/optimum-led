@@ -1,15 +1,7 @@
 {%set
 features = [
   {
-    img: true,
-    title: mixins.icon('value') + '<h4 class="h4">Підвищуємо вартість
-нерухомості до 25%</h4>',
-    text: 'Продумана світлова композиція
-здатна підвищити привабливість
-і статусність будівлі, а отже відчутно
-підняти вартість нерухомості.'
-  },
-  {
+    mod: 'is-xs-none js-toggle-block',
     title: mixins.icon('sketch') + '<h4 class="h4">Робимо фокус
 на архітектурі та дизайні</h4>',
     text: 'Розробляємо дизайн світла, орієнтуючись
@@ -20,6 +12,7 @@ features = [
 компаній в комерційних приміщеннях.'
   },
   {
+    mod: 'is-xs-none js-toggle-block',
     title: mixins.icon('work-station') + '<h4 class="h4">Формуємо комфортний
 простір для життя</h4>',
     text: 'Ми створюємо світ, який покращує
@@ -42,15 +35,34 @@ features = [
     </div>
 
     <div class="features__features">
+      <!-- begin feature -->
+      <div class="feature{% if i.mod %} {{ i.mod }}{% endif %}">
+        <div class="feature__inner">
+          <div class="feature__title feature__title-has-icon">
+            {{ mixins.icon('value') }}
+            <h4 class="h4">Підвищуємо вартість
+            нерухомості до 25%</h4>
+          </div>
+
+          <div class="feature__text text">Продумана світлова композиція
+            здатна підвищити привабливість
+            і статусність будівлі, а отже відчутно
+          підняти вартість нерухомості.</div>
+
+          <a href="#" class="toggle-btn is-xs-min js-toggle-btn">Подробнее</a>
+        </div>        
+      </div>
+      <!-- end feature -->
+      
+
       {% for i in features %}
       <!-- begin feature -->
-      <div class="feature">
+      <div class="feature{% if i.mod %} {{ i.mod }}{% endif %}">
         <div class="feature__inner">
           <div class="feature__title feature__title-has-icon">{{ i.title | safe }}</div>
 
           <div class="feature__text text">{{ i.text | safe }}</div>
-        </div>
-        
+        </div>        
       </div>
       <!-- end feature -->
       {% endfor %}

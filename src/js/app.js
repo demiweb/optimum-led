@@ -10,6 +10,7 @@ import correctSectionBgPosition from './components/correctSectionBgPosition';
 import setPageAnimations from './components/animations/setPageAnimations';
 import checkSectionsOverflow from './components/checkSectionsOverflow';
 // import animateTitles from './components/animateTitles';
+import toggleHiddenBlocks from './components/toggleHiddenBlocks';
 
 $(function() {
   // sayHello();
@@ -22,4 +23,5 @@ $(function() {
   setPageAnimations();
   checkSectionsOverflow();
   // animateTitles();
+  toggleHiddenBlocks();
 });

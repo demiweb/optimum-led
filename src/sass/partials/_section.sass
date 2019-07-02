@@ -11,9 +11,15 @@
   video
     +coverdiv
     object-fit: cover
+    &.is-desctop
+      +sm
+        display: none
   &--mob-left
     +sm
       background-position: 65% 50%
+  &--mob-left-lg
+    +sm
+      background-position: 85% 50%
 
 // [data-page="services"]
 //   .section-bg
@@ -62,7 +68,9 @@
     bottom: 10%
     +xl
       // bottom: $header-height-sm-vert
-      bottom: -10%
+      bottom: 5%
+  &__word-bottom-fu
+    left: 40%
   &__scroll-down
     position: absolute
     bottom: 35px

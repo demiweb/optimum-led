@@ -43,7 +43,7 @@ export const {
   HASTEXT: 'has-text',
   VALID: 'is-valid',
   FIXED: 'is-fixed',
-  FLASH_DURATION: 1200,
+  FLASH_DURATION: 2000,
   SECTION_BLOCK: 'section__block',
   FLASH_IN: 'flashIn',
   SECTION_BG: 'section-bg',

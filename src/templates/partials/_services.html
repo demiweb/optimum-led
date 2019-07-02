@@ -37,7 +37,9 @@
               людину до певного емоційного стану. 
             Дозволяє вирішити визначене завдання бренду:</div>
 
-            <div class="section-block__descr-list">
+            <a href="#" class="toggle-btn is-xs-min js-toggle-btn">Подробнее</a>
+
+            <div class="section-block__descr-list js-toggle-block is-xs-none">
               {{ mixins.list(
                 name = 'section-list',
                 modifications = { wrap: '', item: '', link: '' },
@@ -50,7 +52,7 @@
               ) }}
             </div>
 
-            <div class="section-block__descr-text text">Будуючи світлову композицію за принципами
+            <div class="section-block__descr-text text js-toggle-block is-xs-none">Будуючи світлову композицію за принципами
               маркетингу, ми вивчаємо поведінку
               та вподобання цільової аудиторії, а також
             вплив світла на неї в різних умовах.</div>
@@ -61,11 +63,16 @@
           <div class="section-block__blocks">
             {% for j in i.blocks %}
             <!-- begin block -->
-            <div class="block">
+            <div class="block{% if j.mod %} {{ j.mod }}{% endif %}">
               <div class="block__nmb">{{ j.nmb }}</div>
-              <div class="block__text text">{{ j.text }}</div>
+              <div class="block__text text">{{ j.text | safe }}</div>              
             </div>
             <!-- end block -->
+            {% if j.btn %}
+            <div class="toggle-btn__wrap is-mob">
+              <a href="#" class="toggle-btn  js-toggle-btn">Подробнее</a>
+            </div>            
+            {% endif %}
             {% endfor %}
           </div>
           {% endif %}
@@ -74,11 +81,11 @@
       </div>
     </div>
 
-    <div class="section__word-bottom text-stroke flashIn">{{ i.word }}</div>
+    <div class="section__word-bottom{% if i.wordMod %} {{ i.wordMod }}{% endif %} text-stroke flashIn">{{ i.word }}</div>
 
     {% if i.img %}
-    <div class="section-bg section-bg--mob-left js-lazy" data-background-image="img/services/{{ i.img }}">
-      <video data-src="video/{{ i.video }}.mp4" class="js-lazy" autoplay="" muted="" playsinline="" ></video>
+    <div class="section-bg section-bg--mob-left{% if i.bgMod %} {{ i.bgMod }}{% endif %} js-lazy" data-background-image="img/services/{{ i.img }}">
+      <video data-src="video/{{ i.video }}.mp4" class="is-desctop js-lazy" autoplay="" muted="" playsinline="" ></video>
     </div>
     {% endif %}
 

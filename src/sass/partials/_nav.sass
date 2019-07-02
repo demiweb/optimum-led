@@ -33,7 +33,7 @@
   a
     +tr(color .3s)
     +hover
-      color: $gray-dark
+      color: $white
 
 
   &--dropdown
@@ -42,11 +42,14 @@
     position: absolute
     z-index: 1
     top: 100%
-    left: 0
+    left: 50%
+    transform: translate(-50%, 0)
+    padding: 15px
     color: $gray-light
     text-align: left
     +tr(visibility .3s, opacity .3s)
     padding-top: 10px
+    background-color: rgba($black, .5)
     li
       display: block
       padding-top: 9px

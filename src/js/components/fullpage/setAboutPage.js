@@ -21,7 +21,10 @@ export default function setAboutPage(page) {
     const glowingext = section.querySelector('.glowing');    
 
     section.classList.add(ACTIVE);
-    word.classList.add(ANIMATE);
+    if (word) {
+      word.classList.add(ANIMATE);
+    };
+    
 
     if (title) {
       setTimeout(() => {
@@ -49,8 +52,10 @@ export default function setAboutPage(page) {
 
     paginator.tl.finished.then(() => {
       paginator.allowScroll = true;
-      word.classList.remove(ANIMATE);
-    });    
+      if (word) {
+        word.classList.remove(ANIMATE);
+      };      
+    });
   };
   paginator.getElements = (section) => {
     const elements = {

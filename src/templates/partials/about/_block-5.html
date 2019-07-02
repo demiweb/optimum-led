@@ -1,13 +1,6 @@
 {%set
 descr = [
   {
-    title: '<em>3-15 днів</em>
-розробка проекту',
-    text: 'Створюємо від 3 до 9 варіантів
-проекту. Прораховуємо кількість освітлювальних приладів, їх 
-розташування і взаємодію.'
-  },
-  {
     title: '<em>14 днів</em>
 Розробка обладнання',
     text: 'Розробляємо обладнання під обраний проект або підбираємо прилади серед пропозицій світових постачальників.'
@@ -38,9 +31,23 @@ descr = [
           </div>
 
           <div class="descr-sm__content">
-            {% for i in descr %}
             <!-- begin descr-sm-item -->
             <div class="descr-sm-item">
+              <div class="descr-sm-item__title">
+                <h4 class="h4"><em>3-15 днів</em> розробка проекту</h4>
+              </div>
+
+              <div class="descr-sm-item__text text">Створюємо від 3 до 9 варіантів
+                проекту. Прораховуємо кількість освітлювальних приладів, їх 
+              розташування і взаємодію.</div>
+
+              <a href="#" class="toggle-btn is-xs-min js-toggle-btn">Подробнее</a>
+            </div>
+            <!-- end descr-sm-item -->
+
+            {% for i in descr %}
+            <!-- begin descr-sm-item -->
+            <div class="descr-sm-item is-xs-none js-toggle-block">
               <div class="descr-sm-item__title">
                 <h4 class="h4">{{ i.title | safe }}</h4>
               </div>

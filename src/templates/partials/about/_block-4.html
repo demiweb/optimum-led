@@ -1,15 +1,6 @@
 {%set
 features = [
   {
-    title: 'Концепція внутрішнього освітлення',
-    subttl: 'до 12 днів',
-    text: 'Задає атмосферу, підкреслює
-дизайн або змінює сприйняття
-простору: візуально розширює
-приміщення, піднімає стелі,
-створює ритм, ускладнює обсяг.'
-  },
-  {
     title: 'Концепція
 зовнішнього освітлення',
     subttl: '4-10 днів',
@@ -38,9 +29,27 @@ features = [
     </div>
 
     <div class="features__features">
-      {% for i in features %}
       <!-- begin feature -->
       <div class="feature">
+        <div class="feature__inner">
+          <div class="feature__title"><h4 class="h4">Концепція внутрішнього освітлення</h4></div>
+
+          <div class="feature__subttl text">до 12 днів</div>
+
+          <div class="feature__text text">Задає атмосферу, підкреслює
+            дизайн або змінює сприйняття
+            простору: візуально розширює
+            приміщення, піднімає стелі,
+          створює ритм, ускладнює обсяг.</div>
+
+          <a href="#" class="toggle-btn is-xs-min js-toggle-btn">Подробнее</a>
+        </div>
+      </div>
+      <!-- end feature -->
+
+      {% for i in features %}
+      <!-- begin feature -->
+      <div class="feature is-xs-none js-toggle-block">
         <div class="feature__inner">
           <div class="feature__title"><h4 class="h4">{{ i.title | safe }}</h4></div>
 

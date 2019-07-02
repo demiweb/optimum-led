@@ -9,7 +9,15 @@ export default function correctSectionBgPosition() {
     const container = $(img).closest('.ps')[0];
     if (!container) return;
 
-    const bottom = container.clientHeight - container.scrollHeight;
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
+        let bottom = container.clientHeight - container.scrollHeight;
+        img.style.bottom = bottom + 'px';
+      });
+    });
+    observer.observe(container, { attributes: true });
+
+    let bottom = container.clientHeight - container.scrollHeight;
     img.style.bottom = bottom + 'px';
   });
 };

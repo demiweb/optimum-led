@@ -1,5 +1,7 @@
 import PerfectScrollbar from 'perfect-scrollbar';
 
+export const psAll = [];
+
 export default function setScrollbar() {
   const containers = [].slice.call(document.querySelectorAll('.js-scrollbar-mob'));
 
@@ -8,6 +10,8 @@ export default function setScrollbar() {
       const ps = new PerfectScrollbar(container, {
         suppressScrollX: true
       });
+
+      psAll.push(ps);
     });
   };
 };
