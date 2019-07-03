@@ -4,6 +4,7 @@ home = [
     title: '<strong>OPTIMUM LED</strong> архітектура світла',
     subttl: 'Дизайн світла та виробництво світлового обладнання',
     word: 'led',
+    wordMod: 'home-page__word-led',
     img: 'home-1.png',
     link: 'Дізнатися більше про нас'
   },
@@ -11,11 +12,13 @@ home = [
     title: '<strong>Ми викликаємо емоції</strong> за допомогою світла',
     subttl: 'Професійне освітлення здатне змінювати сприйняття реальності, викликати глибинні емоції та почуття, трансформувати об’єкти, що нас оточують, і вибудовувати образи в уяві.',
     word: 'emotions',
+    wordMod: 'home-page__word-emotions',
     img: 'home-2.png',
     link: 'Дізнатися більше про послуги'
   },
   {
     word: 'services',
+    wordMod: 'home-page__word-services',
     img: 'home-3.png',
     nav: true
   }
@@ -69,7 +72,7 @@ home = [
             </div>
           </div>
 
-          <div class="home-page__word text-stroke flashIn">{{ i.word }}</div>
+          <div class="home-page__word text-stroke {{ i.wordMod }} flashIn">{{ i.word }}</div>
 
           {# <div class="home-page__img js-lazy" data-background-image="img/home/{{ i.img }}"></div> #}
           {# <div class="home-page__img js-lazy"></div> #}
