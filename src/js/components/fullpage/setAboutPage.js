@@ -5,6 +5,7 @@ import { ACTIVE, ANIMATE, FLASH_DURATION, SECTION_BLOCK, FLASH_IN, SECTION_BG, T
 
 export default function setAboutPage(page) {
   const wrap = page.parentNode;
+  const opacity = window.matchMedia('(max-width: 767px)').matches ? 0.3 : 1;
 
   const paginator = new Paginator('.js-fullpage', {
     allowWheel: true,
@@ -18,7 +19,8 @@ export default function setAboutPage(page) {
     const word = section.querySelector((`.${FLASH_IN}`));
     const img = section.querySelector((`.${SECTION_BG}`));
     const title = section.querySelector(`.${TITLE}`);
-    const glowingext = section.querySelector('.glowing');    
+    const glowingext = section.querySelector('.glowing');
+
 
     section.classList.add(ACTIVE);
     if (word) {
@@ -46,7 +48,7 @@ export default function setAboutPage(page) {
       }, `+=${FLASH_DURATION}`)
       .add({
         targets: img,
-        opacity: [0, 1],
+        opacity: [0, opacity],
         duration: 700
       });
 
@@ -118,7 +120,7 @@ export default function setAboutPage(page) {
           })
           .add({
             targets: self.getElements(self.target).img,
-            opacity: [0, 1],
+            opacity: [0, opacity],
             duration: 700
           });
       } else {
@@ -138,7 +140,7 @@ export default function setAboutPage(page) {
           }, `+=${FLASH_DURATION / 2}`)
           .add({
             targets: self.getElements(self.target).img,
-            opacity: [0, 1],
+            opacity: [0, opacity],
             duration: 700
           });
       };      
@@ -170,7 +172,7 @@ export default function setAboutPage(page) {
           })
           .add({
             targets: self.getElements(self.target).img,
-            opacity: [0, 1],
+            opacity: [0, opacity],
             duration: 700
           });
       } else {
@@ -190,7 +192,7 @@ export default function setAboutPage(page) {
           }, `+=${FLASH_DURATION / 2}`)
           .add({
             targets: self.getElements(self.target).img,
-            opacity: [0, 1],
+            opacity: [0, opacity],
             duration: 700
           });
       };

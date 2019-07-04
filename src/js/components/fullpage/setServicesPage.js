@@ -5,6 +5,7 @@ import { ACTIVE, ANIMATE, FLASH_DURATION, SECTION_BLOCK, FLASH_IN, SECTION_BG, T
 export default function setServicesPage(page) {
   const wrap = page.parentNode;
   const pagination = wrap.querySelector('.js-fullpage-pagination');
+  const opacity = window.matchMedia('(max-width: 767px)').matches ? 0.3 : 1;
 
   const paginator = new Paginator('.js-fullpage', {
     pagination,
@@ -100,7 +101,7 @@ export default function setServicesPage(page) {
         }, `+=${FLASH_DURATION / 2}`)
         .add({
           targets: self.getElements(self.target).img,
-          opacity: [0, 1],
+          opacity: [0, opacity],
           duration: 700
         });
     } else {
@@ -129,7 +130,7 @@ export default function setServicesPage(page) {
         })
         .add({
           targets: self.getElements(self.target).img,
-          opacity: [0, 1],
+          opacity: [0, opacity],
           duration: 700
         });
     };   
