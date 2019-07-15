@@ -15,13 +15,18 @@ export default function toggleHiddenBlocks() {
     $(e.currentTarget).toggleClass(ACTIVE);
     $blocks.slideToggle(SLIDE_DURATION);
 
+
+    if ($wrap[0].scrollHeight > $wrap.height()) {
+      $wrap.addClass('is-overflowing');
+    };
+
     setTimeout(() => {
       const container = $(e.currentTarget).closest('.ps')[0];
       if (!container) return;
       
       psAll.forEach((psCurrent, i) => {
-        if (psCurrent.element.className === container.className) {
-          console.log(psCurrent);
+        if (psCurrent.element === container) {
+          // console.log(psCurrent);
           // psCurrent.destroy();
           psCurrent.update();
         };
