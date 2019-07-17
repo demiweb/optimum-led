@@ -1,6 +1,6 @@
 import Paginator from '../fullpage/Paginator';
 import anime from 'animejs';
-import { ACTIVE, ANIMATE, FLASH_DURATION, SECTION_BLOCK, FLASH_IN, SECTION_BG, TITLE, HIDDEN } from '../../constants';
+import { ACTIVE, ANIMATE, FLASH_DURATION, SECTION_BLOCK, FLASH_IN, SECTION_BG, TITLE } from '../../constants';
 
 
 export default function setAboutPage(page) {
@@ -74,11 +74,11 @@ export default function setAboutPage(page) {
   paginator.enterAnimations = (self) => {
     if (paginator.nextSection > 0) {
       if (paginator.getElements(self.current).nav) {
-        paginator.getElements(self.current).nav.classList.add(HIDDEN);
+        // paginator.getElements(self.current).nav.classList.add(HIDDEN);
       };      
     } else {
       if (paginator.getElements(self.current).nav) {
-        paginator.getElements(self.current).nav.classList.remove(HIDDEN);
+        // paginator.getElements(self.current).nav.classList.remove(HIDDEN);
       }; 
     };
     if (self.getElements(self.target).word) {

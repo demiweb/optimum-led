@@ -2,6 +2,7 @@ import Animator from './Animator';
 import { ACTIVE, $WIN, $DOC } from '../../constants';
 import anime from 'animejs';
 import '../../lib/touchevents';
+import checkSectionOverflow from '../checkSectionsOverflow';
 
 // import PerfectScrollbar from 'perfect-scrollbar';
 
@@ -43,7 +44,7 @@ export default class Paginator {
     this._paginateOnClick();
     if (this.allowTouch) {
       this._paginateOnTouch();
-    };    
+    };
   };
 
   getIdFromUrl() {
@@ -160,7 +161,9 @@ export default class Paginator {
       this.animator.exitAnimations = this.exitAnimations;
     };
   
-    this.animator.animate();    
+    this.animator.animate();
+
+    checkSectionOverflow(this.$sections[this.nextSection]);
 
     this.activeSection = this.nextSection;
 

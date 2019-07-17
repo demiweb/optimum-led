@@ -8,7 +8,7 @@ import toggleMenu from './components/toggleMenu';
 import setScrollbar from './components/setScrollbar';
 import correctSectionBgPosition from './components/correctSectionBgPosition';
 import setPageAnimations from './components/animations/setPageAnimations';
-import checkSectionsOverflow from './components/checkSectionsOverflow';
+// import checkSectionsOverflow from './components/checkSectionsOverflow';
 // import animateTitles from './components/animateTitles';
 import toggleHiddenBlocks from './components/toggleHiddenBlocks';
 
@@ -21,7 +21,7 @@ $(function() {
   setScrollbar();
   correctSectionBgPosition();
   setPageAnimations();
-  checkSectionsOverflow();
+  // checkSectionsOverflow();
   // animateTitles();
   toggleHiddenBlocks();
 });
