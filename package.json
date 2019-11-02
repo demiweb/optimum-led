@@ -69,7 +69,7 @@
     "swiper": "^4.5.0",
     "vinyl-buffer": "^1.0.0",
     "webpack": "^4.6.0",
-    "webpack-bundle-analyzer": "^2.11.1",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-glsl-loader": "^1.0.1"
   }
 }
